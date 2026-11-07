@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>چطور زندگی خود را مدیریت می‌کنید؟</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap">
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--tx:#1f2a44;--mut:#5d6b85;--pri:#2f5d9e;--pri2:#e3edfb;--bd:#d5dfee;--ok:#2e8b57;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10172a;--card:#19233b;--tx:#e8eefb;--mut:#9fb0cf;--pri:#7fb0f5;--pri2:#24365a;--bd:#2d3d60;--ok:#5ccf93;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10172a;--card:#19233b;--tx:#e8eefb;--mut:#9fb0cf;--pri:#7fb0f5;--pri2:#24365a;--bd:#2d3d60;--ok:#5ccf93;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.9 'Vazirmatn',Tahoma,sans-serif;min-height:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);padding:8px 14px}
+.bar{height:6px;border-radius:6px;background:var(--bd);overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--pri);transition:width .3s}
+main{max-width:640px;margin:0 auto;padding:0 14px 90px}
+h1{font-size:22px;margin:14px 0 4px}h2{font-size:17px;color:var(--pri);margin:24px 0 6px}
+.sub{color:var(--mut);margin:0 0 10px}
+.q{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;margin:10px 0}
+.q[hidden]{display:none}.q b{display:block;margin-bottom:6px}
+.ch{display:flex;flex-wrap:wrap;gap:8px}
+.c{position:relative}.c input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.c span{display:block;min-height:44px;padding:8px 14px;border:1.5px solid var(--bd);border-radius:12px;background:var(--bg);line-height:1.6}
+.c input:checked+span{background:var(--pri2);border-color:var(--pri);color:var(--pri);font-weight:700}
+.c input:focus-visible+span{outline:2px solid var(--pri)}
+.sc .c span{padding:8px 0;width:48px;text-align:center}
+.gr{margin:8px 0 0}.gr small{color:var(--mut)}
+textarea,input[type=text],input[type=password]{width:100%;font:inherit;color:var(--tx);background:var(--bg);border:1.5px solid var(--bd);border-radius:12px;padding:10px;resize:vertical}
+.btn{font:inherit;background:var(--pri);color:#fff;border:0;border-radius:12px;min-height:48px;padding:0 22px;cursor:pointer;font-weight:700}
+.btn.s{background:var(--pri2);color:var(--pri)}
+.sticky{position:fixed;inset:auto 0 0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--bd);display:flex;justify-content:center;gap:8px;z-index:9}
+.note{background:#fff7e0;color:#4a3a00;border:1px solid #efd58a;border-radius:14px;padding:12px 14px;margin:14px 0}
+.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat div{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:10px;text-align:center}
+.stat em{display:block;font-style:normal;font-size:28px;font-weight:700;color:var(--pri)}.stat small{color:var(--mut)}
+.big{grid-column:1/3;background:var(--pri2)!important}.big em{font-size:40px}
+.row{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:14px}.row span{flex:0 0 42%}.row .t{flex:1;height:14px;background:var(--bd);border-radius:8px;overflow:hidden}.row .t i{display:block;height:100%;background:var(--pri)}.row u{text-decoration:none;flex:0 0 40px;text-align:left;color:var(--mut)}
+details{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 12px;margin:6px 0}summary{cursor:pointer}
+.tx{border-right:3px solid var(--pri);padding:2px 10px;margin:4px 0;font-size:14px}
+.ok{color:var(--ok);font-weight:700}
+#toast{position:fixed;inset:auto 14px 80px;background:#222;color:#fff;border-radius:12px;padding:10px;text-align:center;display:none;z-index:20}
+:root{--bg:#fff7e0;--card:#fffcf1;--opt:#ffffff;--tx:#1c2c52;--mut:#58648a;--pri:#1c2c52;--pri2:#f3d88a;--bd:#d8c79c;--ac:#c9972b;--btn:#1c2c52;--btnt:#fff;--band:#e9dab6;--bandt:#1c2c52}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1730;--card:#18233f;--opt:#0f1730;--tx:#f3ead2;--mut:#aab5d3;--pri:#f3ead2;--pri2:#f3d88a;--bd:#2e3d66;--ac:#e0b84f;--btn:#f3d88a;--btnt:#1a1a1a;--band:#26376a;--bandt:#fff7e0}}
+:root[data-theme="dark"]{--bg:#0f1730;--card:#18233f;--opt:#0f1730;--tx:#f3ead2;--mut:#aab5d3;--pri:#f3ead2;--pri2:#f3d88a;--bd:#2e3d66;--ac:#e0b84f;--btn:#f3d88a;--btnt:#1a1a1a;--band:#26376a;--bandt:#fff7e0}
+.bar i{background:var(--ac)}
+.btn{background:var(--btn);color:var(--btnt)}.btn.s{background:var(--pri2);color:#1a1a1a}
+.hero{background:var(--band);color:var(--bandt);border:1px solid var(--bd);border-radius:22px;padding:18px 16px;margin:14px 0}
+.hero h1{margin:8px 0;color:var(--bandt);font-size:23px}.hero p{margin:6px 0;color:var(--bandt)}
+.badge{display:inline-block;background:var(--bandt);color:var(--band);border-radius:20px;padding:2px 12px;font-size:13px;font-weight:700}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.pills span{background:rgba(128,128,128,.18);border-radius:20px;padding:2px 12px;font-size:13px;color:var(--bandt)}
+.sec{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:6px 14px 12px;margin:16px 0;box-shadow:0 3px 0 var(--bd)}
+.sec h2{margin:-6px -14px 6px;padding:10px 14px;background:var(--band);color:var(--bandt);border-radius:19px 19px 0 0;font-size:17px;display:flex;align-items:center;gap:10px}
+.sec h2 i{font-style:normal;flex:0 0 28px;height:28px;border-radius:50%;background:#f3d88a;color:#1c2c52;display:grid;place-items:center;font-size:14px}
+.sec .q{background:transparent;border:0;border-bottom:1px dashed var(--bd);border-radius:0;padding:12px 0;margin:0}.sec .q:last-child{border-bottom:0}
+.c span{background:var(--opt);color:var(--tx);border:2px solid var(--pri);font-weight:500}
+.c input:checked+span{background:var(--pri2);color:#111;border-color:var(--ac);box-shadow:inset 0 0 0 1.5px var(--ac);font-weight:700}
+.c input:checked+span::before{content:"✓ "}
+textarea,input[type=text]{background:var(--opt);border:2px solid var(--pri)}
+.big em,.big small{color:#1c2c52}
+</style>
+</head>
+<body>
+<div class="top"><div class="bar"><i id="pg"></i></div></div>
+<main>
+<div id="form">
+<div class="hero"><span class="badge">پرسش‌نامه‌ی ساخت یک سایت برنامه‌ریزی</span><h1>چطور زندگی خود را مدیریت می‌کنید؟</h1><p>ما در حال ساختن یک سایت برنامه‌ریزی برای دانشجوها هستیم که درس، کار و زندگی شخصی را یک‌جا و منظم نگه می‌دارد تا بهتر برنامه‌ریزی کنید. جواب‌های شما تعیین می‌کند این سایت چه امکاناتی داشته باشد و ظاهرش چطور باشد.</p><div class="pills"><span>⏱ حدود ۵ دقیقه</span><span>🔒 بدون نام</span><span>✅ بیشتر تیک‌زدنی</span></div></div>
+<div id="qs"></div>
+<noscript><div class="note">برای دیدن سوال‌ها، این صفحه را با مرورگر (سافاری یا کروم) باز کنید، نه پیش‌نمایش فایل در تلگرام یا فایل‌ها.</div></noscript>
+<div class="note"><b>چرا این برنامه؟</b> برای اینکه درس و کار و زندگی دانشجویی کنار هم قرار بگیرند و بهتر مدیریت شوند تا کیفیت زندگی بالاتر برود. یعنی برنامه‌ی کلاس‌ها، امتحان‌ها و پروژه‌هایتان را یک‌جا داشته باشید و با جلسه‌های کاری و برنامه‌های شخصی‌تان هماهنگ باشد.</div>
+</div>
+<div id="thanks" hidden><h1>🙏 خیلی ممنون!</h1><p>جواب‌های شما ثبت شد و به بهتر شدن برنامه کمک می‌کند.</p><div id="codebox" hidden><div class="note">ثبت مستقیم ممکن نشد. این کد را کپی کنید و برای کسی که پرسش‌نامه را برایتان فرستاده بفرستید.</div><textarea id="code" rows="4" readonly></textarea><p><button class="btn s" id="cp">کپی کد</button> <button class="btn s" id="sh">ارسال با تلگرام یا پیام‌رسان</button></p></div></div>
+<div id="res" hidden></div>
+</main>
+<div class="sticky"><button class="btn" id="send">ارسال پاسخ‌ها</button><button class="btn s" id="own" hidden>نتایج</button></div>
+<div id="toast"></div>
+<script>
+var O1=['بله، مدیریت می‌کنم','خیر، ولی دوست دارم مدیریت کنم','خیر، و فعلاً نیازی نمی‌بینم'];
+var OP=['بله، استفاده می‌کنم','قبلاً کرده‌ام و رها کرده‌ام','نه'];
+var OC=['بله، راحتم و مشکلی ندارم','تا حدی','نه، مشکل دارم'];
+var GR=['تحویل تکلیف یا امتحان را فراموش می‌کنم','برنامه‌هایم جاهای مختلف پخش است','کارهای درسی، کاری و شخصی در هم قاطی می‌شوند','نمی‌دانم کدام کار مهم‌تر است','برنامه می‌ریزم ولی بعد از چند روز رهایش می‌کنم','تاریخ‌های شمسی با برنامه‌هایم جور نیست'];
+var GL=['هرگز','به‌ندرت','گاهی','اغلب','همیشه'];
+function usedApp(a){return a.q7&&a.q7!==OP[2]}
+var S=[
+{h:'شروع',q:[
+{i:'q1',t:'آیا اصلاً زندگی خود را مدیریت می‌کنید، یا دوست دارید مدیریت کنید؟',k:'one',o:O1}]},
+{h:'درباره‌ی شما',q:[
+{i:'q2',t:'وضعیت شما',k:'one',o:['فقط درس می‌خوانم','درس و کار','درس و پروژه یا فعالیت جانبی']},
+{i:'q3',t:'گوشی شما',k:'one',o:['اندروید','آیفون']},
+{i:'q4',t:'رشته و ترم (اختیاری)',k:'text',r:1}]},
+{h:'الان چطور برنامه‌ریزی می‌کنید؟',q:[
+{i:'q5',t:'برنامه‌هایتان را کجا می‌نویسید؟ (چند مورد می‌شود)',k:'multi',o:['دفترچه یا کاغذ','یادداشت گوشی','تلگرام','تقویم گوشی','اکسل یا شیت','فقط در ذهنم','برنامه‌ی برنامه‌ریزی']},
+{i:'q6',t:'از روش فعلی‌تان چقدر راضی هستید؟ (۱ = اصلاً، ۵ = خیلی)',k:'scale'},
+{i:'q7',t:'از برنامه‌ی دیگری برای برنامه‌ریزی استفاده می‌کنید یا کرده‌اید؟',k:'one',o:OP},
+{i:'q8',t:'اسم آن برنامه چیست؟',k:'text',r:1,s:usedApp},
+{i:'q9',t:'چه چیزش خوب است؟ (چند مورد می‌شود)',k:'multi',o:['ساده است','ظاهر قشنگ دارد','تقویم شمسی دارد','یادآوری خوبی دارد','رایگان است','سریع است'],s:usedApp},
+{i:'q10',t:'با آن برنامه راحت هستید؟',k:'one',o:OC,s:usedApp},
+{i:'q11',t:'اگر مشکلی دارد، چه بوده؟ (اختیاری)',k:'text',r:2,s:function(a){return usedApp(a)&&a.q10&&a.q10!==OC[0]}}]},
+{h:'مشکل‌های روزمره',q:[
+{i:'q12',t:'هر جمله چقدر برای شما پیش می‌آید؟',k:'grid'}]},
+{h:'چه چیزهایی را پیگیری می‌کنید؟',q:[
+{i:'q13',t:'درس',k:'multi',o:['برنامه‌ی کلاس‌ها','امتحان‌ها','تکلیف و پروژه','نمره‌ها','جزوه و منابع']},
+{i:'q14',t:'کار یا فعالیت جانبی',k:'multi',o:['ددلاین‌ها','مشتری یا کارفرما','درآمد و هزینه','جلسه‌ها','ندارم']},
+{i:'q15',t:'زندگی شخصی',k:'multi',o:['وقت دکتر','باشگاه یا ورزش','مناسبت‌ها','قبض و پرداخت‌ها','عادت‌ها','اهداف شخصی']}]},
+{h:'امکانات و ظاهر برنامه',q:[
+{i:'q16',t:'کدام ۳ قابلیت برایتان مهم‌تر است؟ (فقط ۳ مورد)',k:'multi',m:3,o:['یادآوری امتحان و تکلیف','تقویم شمسی','ساختار آماده‌ی ترم و درس‌ها','فهرست کارها','ژورنال روزانه','ثبت انرژی','پیگیری عادت‌ها','آمار و گزارش پیشرفت','ذخیره‌ی مطمئن و پشتیبان‌گیری']},
+{i:'q17',t:'اولین صفحه‌ای که باز می‌شود چه باشد؟',k:'one',o:['کارهای امروز','تقویم هفته','ترم و درس‌ها','یادداشت و ژورنال روز']},
+{i:'q18',t:'کارها را چطور ببینید؟',k:'one',o:['فهرست ساده','تقویم','کارت‌های ستونی (مثل تخته)','برنامه‌ی ساعتی روز']},
+{i:'q19',t:'ثبت یک کار چطور باشد؟',k:'one',o:['فقط یک خط سریع','فرم کامل (تاریخ، دسته، یادآوری)']},
+{i:'q20',t:'ظاهر برنامه',k:'one',o:['روشن','تاریک','هر دو']},
+{i:'q21',t:'حال‌وهوای رنگ‌ها',k:'one',o:['شاد و پرانرژی','آرام و ساده','ساده و رسمی']},
+{i:'q22',t:'یادآوری‌ها چطور برسد؟',k:'multi',o:['اعلان گوشی','ایمیل','پیامک','نیازی ندارم']},
+{i:'q23',t:'بیشتر روی چه چیزی استفاده می‌کنید؟',k:'one',o:['گوشی','کامپیوتر','هر دو']},
+{i:'q24',t:'آیا ژورنال یا خاطره می‌نویسید؟',k:'one',o:['بله، منظم','گاهی','نه']},
+{i:'q25',t:'ثبت ۳۰ ثانیه‌ای انرژی هر شب به دردتان می‌خورد؟ (۱ = اصلاً، ۵ = خیلی)',k:'scale'},
+{i:'q26',t:'یک چیزی که حتماً باید باشد، و یک چیزی که اصلاً نباید باشد: (اختیاری)',k:'text',r:3},
+{i:'q27',t:'اگر نسخه‌ی آزمایشی ساخته شد، چند هفته استفاده می‌کنید و نظرتان را می‌گویید؟',k:'one',o:['بله','شاید','نه']},
+{i:'q28',t:'اگر بله، راه تماس (آیدی یا شماره، اختیاری)',k:'text',r:1}]}
+];
+var A={},rows=[],Q=[];
+S.forEach(function(s){s.q.forEach(function(q){Q.push(q)})});
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fa(n){return Number(n).toLocaleString('fa-IR')}
+function chip(t,n,v,l){return '<label class="c"><input type="'+t+'" name="'+n+'" value="'+v+'"><span>'+l+'</span></label>'}
+function build(){var h='';S.forEach(function(s,si){h+='<section class="sec"><h2><i>'+fa(si+1)+'</i>'+s.h+'</h2>';s.q.forEach(function(q){
+ h+='<div class="q" data-i="'+q.i+'"><b>'+q.t+'</b>';
+ if(q.k=='one')h+='<div class="ch">'+q.o.map(function(o){return chip('radio',q.i,o,o)}).join('')+'</div>';
+ if(q.k=='multi')h+='<div class="ch">'+q.o.map(function(o){return chip('checkbox',q.i,o,o)}).join('')+'</div>';
+ if(q.k=='scale')h+='<div class="ch sc">'+[1,2,3,4,5].map(function(n){return chip('radio',q.i,n,fa(n))}).join('')+'</div>';
+ if(q.k=='text')h+='<textarea rows="'+(q.r||1)+'" name="'+q.i+'"></textarea>';
+ if(q.k=='grid'){h+='<small>'+GL.map(function(l,n){return fa(n+1)+' = '+l}).join('، ')+'</small>';GR.forEach(function(g,r){h+='<div class="gr">'+g+'<div class="ch sc">'+[1,2,3,4,5].map(function(n){return chip('radio','g'+r,n,fa(n))}).join('')+'</div></div>'})}
+ h+='</div>'});h+='</section>'});$('qs').innerHTML=h}
+function upd(){Q.forEach(function(q){if(q.s){var v=q.s(A);document.querySelector('[data-i="'+q.i+'"]').hidden=!v;if(!v)delete A[q.i]}});
+ var vis=Q.filter(function(q){return !q.s||q.s(A)}),d=vis.filter(function(q){var v=A[q.i];return v&&(q.k=='grid'?Object.keys(v).length==GR.length:v.length!==0)}).length;$('pg').style.width=Math.round(d/vis.length*100)+'%'}
+$('qs').addEventListener('input',function(e){var t=e.target,n=t.name;if(!n)return;
+ if(n[0]=='g'&&n.length<4){var r=n.slice(1);A.q12=A.q12||{};A.q12[r]=+t.value}
+ else if(t.type=='checkbox'){var q=Q.filter(function(x){return x.i==n})[0],a=A[n]||[];
+  if(t.checked){if(q.m&&a.length>=q.m){t.checked=false;toast('فقط '+fa(q.m)+' مورد');return}a.push(t.value)}else a=a.filter(function(x){return x!=t.value});A[n]=a}
+ else if(t.type=='radio')A[n]=isNaN(t.value)?t.value:+t.value;
+ else{var v=t.value.trim();if(v)A[n]=v;else delete A[n]}upd()});
+function toast(m){var t=$('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},2200)}
+function done(code){$('form').hidden=true;$('thanks').hidden=false;$('send').hidden=true;$('pg').style.width='100%';
+ if(code){$('codebox').hidden=false;$('code').value=code}scrollTo(0,0)}
+$('send').onclick=async function(){
+ if(!A.q1){toast('لطفاً سؤال اول را جواب بدهید');return}
+ var rec={ts:Date.now(),a:A};$('send').disabled=true;
+ try{var db=await claude.use('db'),u=await claude.use('user'),id=u&&await u.id();if(db&&id){await db.collection('answers').doc(id).set(rec);done();return}}catch(e){}
+ try{done(btoa(unescape(encodeURIComponent(JSON.stringify(rec)))))}catch(e){toast('خطا در ارسال')}};
+$('cp').onclick=function(){var c=$('code');c.select();try{navigator.clipboard.writeText(c.value)}catch(e){document.execCommand('copy')}toast('کپی شد')};
+$('sh').onclick=function(){var v=$('code').value;if(navigator.share){navigator.share({text:v}).catch(function(){})}else{$('cp').onclick()}};
+/* owner results */
+function pct(a,b){return b?Math.round(a/b*100):0}
+function gm(a){var g=a.q12;if(!g)return null;var v=Object.keys(g).map(function(k){return g[k]});return v.length?v.reduce(function(x,y){return x+y},0)/v.length:null}
+function bar(l,n,t){var p=pct(n,t);return '<div class="row"><span>'+esc(l)+'</span><div class="t"><i style="width:'+p+'%"></i></div><u>'+fa(p)+'٪</u></div>'}
+function showRes(){var n=rows.length,h='<h1>نتایج</h1><p class="sub">'+fa(n)+' پاسخ ثبت شده</p>';
+ if(!n){h+='<div class="note">هنوز پاسخی ثبت نشده است.</div>'}else{
+ var A_=rows.map(function(r){return r.a||{}}),c=function(f){return A_.filter(f).length};
+ var need=c(function(a){return a.q1==O1[1]||(a.q6&&a.q6<=2)||(gm(a)!==null&&gm(a)>=3.5)});
+ h+='<div class="stat"><div class="big"><em>'+fa(pct(need,n))+'٪</em><small>نیاز به این برنامه (دوست دارند مدیریت کنند، یا از روش فعلی ناراضی‌اند، یا مشکل‌ها را «اغلب» دارند)</small></div>'
+ +'<div><em>'+fa(pct(c(function(a){return a.q1&&a.q1!==O1[2]}),n))+'٪</em><small>مدیریت می‌کنند یا دوست دارند</small></div>'
+ +'<div><em>'+fa(pct(c(function(a){return a.q6&&a.q6<=2}),n))+'٪</em><small>از روش فعلی ناراضی (۱ یا ۲)</small></div>'
+ +'<div><em>'+fa(pct(c(function(a){return a.q27==='بله'}),n))+'٪</em><small>حاضر به آزمایش نسخه‌ی اول</small></div>'
+ +'<div><em>'+fa(pct(c(function(a){return a.q7&&a.q7!==OP[2]}),n))+'٪</em><small>برنامه‌ی دیگری را امتحان کرده‌اند</small></div></div>';
+ Q.forEach(function(q){var t=0,x='';
+  if(q.k=='one'||q.k=='multi'){var tot=c(function(a){return a[q.i]&&a[q.i].length});q.o.forEach(function(o){var m=c(function(a){var v=a[q.i];return q.k=='one'?v===o:v&&v.indexOf(o)>-1});x+=bar(o,m,tot)});if(tot)h+='<h2>'+esc(q.t)+' <small>('+fa(tot)+' نفر)</small></h2>'+x}
+  if(q.k=='scale'){var v=A_.map(function(a){return a[q.i]}).filter(Boolean);if(v.length){h+='<h2>'+esc(q.t)+'</h2><p>میانگین: <b>'+fa((v.reduce(function(a,b){return a+b},0)/v.length).toFixed(1))+'</b> از ۵</p>'+[1,2,3,4,5].map(function(s){return bar(fa(s),v.filter(function(y){return y==s}).length,v.length)}).join('')}}
+  if(q.k=='grid'){h+='<h2>'+esc(q.t)+'</h2><small>میانگین از ۱ تا ۵</small>';GR.forEach(function(g,r){var v=A_.map(function(a){return a.q12&&a.q12[r]}).filter(Boolean);if(v.length){var m=v.reduce(function(a,b){return a+b},0)/v.length;h+='<div class="row"><span>'+esc(g)+'</span><div class="t"><i style="width:'+m*20+'%"></i></div><u>'+fa(m.toFixed(1))+'</u></div>'}})}
+  if(q.k=='text'){var v=A_.map(function(a){return a[q.i]}).filter(Boolean);if(v.length)h+='<h2>'+esc(q.t)+'</h2>'+v.map(function(s){return '<div class="tx">'+esc(s)+'</div>'}).join('')}});
+ h+='<h2>همه‌ی پاسخ‌ها</h2>'+A_.map(function(a,i){return '<details><summary>پاسخ '+fa(i+1)+' — '+esc(a.q1||'')+'</summary>'+Q.filter(function(q){return a[q.i]}).map(function(q){var v=a[q.i];if(q.k=='grid')v=GR.map(function(g,r){return g+': '+(v[r]||'-')}).join(' | ');else if(Array.isArray(v))v=v.join('، ');return '<p><b>'+esc(q.t)+'</b><br>'+esc(v)+'</p>'}).join('')+'</details>'}).join('')}
+ h+='<h2>افزودن کد پاسخ</h2><p class="sub">اگر دانشجویی کد فرستاد، اینجا بچسبانید (هر کد در یک خط).</p><textarea id="imp" rows="3"></textarea><p><button class="btn s" id="impb">افزودن</button> <button class="btn s" id="back">بازگشت به پرسش‌نامه</button></p>';
+ $('res').innerHTML=h;$('form').hidden=true;$('thanks').hidden=true;$('res').hidden=false;$('send').hidden=true;scrollTo(0,0);
+ $('back').onclick=function(){$('res').hidden=true;$('form').hidden=false;$('send').hidden=false};
+ $('impb').onclick=async function(){var L=$('imp').value.split(/\s+/).filter(Boolean),ok=0,db=typeof claude!=='undefined'?await claude.use('db'):null;
+  for(var i=0;i<L.length;i++){try{var r=JSON.parse(decodeURIComponent(escape(atob(L[i]))));if(db&&r.a){await db.collection('imported').doc(r.ts+'i'+i).set(r);ok++}else if(r.a){rows.push(r);ok++}}catch(e){}}if(!db){try{localStorage.setItem('imp',JSON.stringify(rows))}catch(e){}showRes()}toast(fa(ok)+' پاسخ اضافه شد')}}
+async function init(){try{var u=await claude.use('user');if(u&&await u.isOwner()){$('own').hidden=false;
+ var db=await claude.use('db');if(db){var P={};['answers','imported'].forEach(function(c){db.collection(c).onSnapshot(function(s){P[c]=s.docs.map(function(d){return d.data()});rows=[].concat(P.answers||[],P.imported||[]);if(!$('res').hidden)showRes()},function(){})})}
+ $('own').onclick=showRes;if(location.hash=='#results')setTimeout(showRes,600)}}catch(e){}}
+build();upd();init();if(typeof claude==='undefined'&&location.hash=='#results'){try{rows=JSON.parse(localStorage.getItem('imp')||'[]')}catch(e){}setTimeout(showRes,300)}
+</script>
+</body>
+</html>
