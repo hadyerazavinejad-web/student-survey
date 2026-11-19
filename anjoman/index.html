@@ -417,7 +417,7 @@
     const status = document.querySelector("#submit-status");
     const themeToggle = document.querySelector("#theme-toggle");
     const deviceTheme = window.matchMedia("(prefers-color-scheme: dark)");
-    const major = form.elements.q1;
+    const major = form.querySelector('input[name="q1"]');
     const sectionLinks = document.querySelectorAll(".section-nav a");
 
     function syncTheme() {
