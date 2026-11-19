@@ -411,7 +411,8 @@ function readAnswers_(params) {
       throw new Error("Invalid selection in " + name);
     }
     const labels = selected.map(value => question.options[value]);
-    fields.push(labels.join("\n"));
+    fields.push(labels.join("
+"));
     if (hasOther) {
       fields.push(labels.includes("سایر") ? textAnswer_(params[name + "_other"] || [], 180) : "");
     }
@@ -437,12 +438,14 @@ function receipt_(title, message, saved) {
     '<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">' +
     `<meta name="color-scheme" content="light dark"><style>:root{color-scheme:light dark;--bg:#eef3fa;--surface:#fff;--ink:#17253c;--heading:#142850;--line:#d7e0ee;--link:#244fbe;--button:#142850;--focus:#3672ec}
 @media(prefers-color-scheme:dark){:root{--bg:#0e182a;--surface:#172438;--ink:#e9effc;--heading:#f0f5ff;--line:#354766;--link:#adc7ff;--button:#315ccd;--focus:#a2c4ff}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.9 Tahoma,Arial,sans-serif}
-main{max-width:560px;margin:12vh auto 0;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:20px}
+*{box-sizing:border-box}html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@supports(overflow:clip){html{overflow-x:clip}}
+body{margin:0;min-width:0;overflow-wrap:break-word;overflow-wrap:anywhere;background:var(--bg);color:var(--ink);font:16px/1.9 Tahoma,Arial,sans-serif}
+main{width:calc(100% - 28px);max-width:560px;min-width:0;margin:12vh auto 24px;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:20px}
 h1{font-size:clamp(1.3rem,5vw,1.65rem);margin:0 0 8px;color:var(--heading)}p{margin:0}.follow{margin-top:16px}
-a{color:var(--link)}.channel{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;padding:8px 16px;background:var(--button);color:#fff;border-radius:10px;text-decoration:none}
+a{color:var(--link)}.channel{display:inline-flex;align-items:center;justify-content:center;max-width:100%;min-width:0;text-align:center;min-height:44px;margin-top:12px;padding:8px 16px;background:var(--button);color:#fff;border-radius:10px;text-decoration:none}
 .share{margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
-@media(max-width:620px){main{margin:8vh 14px 20px;padding:22px}}</style>` +
+@media(max-width:620px){main{margin:8vh auto 20px;padding:clamp(14px,5vw,22px)}}</style>` +
     '</head><body><main><h1>' + title + '</h1><p>' + message + '</p>' + follow + '</main></body></html>'
   ).setTitle(title).addMetaTag("viewport", "width=device-width, initial-scale=1");
 }
