@@ -2,19 +2,28 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#eef3fa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e182a" media="(prefers-color-scheme: dark)">
   <title>نیازسنجی دانشجویی | انجمن علمی مهندسی کامپیوتر</title>
   <style>
     :root{color-scheme:light dark;--navy:#142850;--ink:#17253c;--blue:#244fbe;--mute:#52617a;--line:#d7e0ee;--bg:#eef3fa;--accent:#bfedef;--surface:#fff;--field:#f9fbff;--link:#1a439f;--selection:#edf3ff;--selection-line:#7295ec;--selection-ink:#173d91;--focus:#3672ec;--error:#92221d;--notice-bg:#fff7df;--notice-ink:#614c18;--notice-line:#e5d4a5;--placeholder:#606f86;--number:#244fbe;}
-    @media(prefers-color-scheme:dark){:root{--navy:#192d52;--ink:#e9effc;--blue:#315ccd;--mute:#b4c3df;--line:#354766;--bg:#0e182a;--accent:#b7edf1;--surface:#172438;--field:#111e31;--link:#a9c5ff;--selection:#233d63;--selection-line:#91b4ff;--selection-ink:#e3edff;--focus:#a2c4ff;--error:#ffb5aa;--notice-bg:#352a18;--notice-ink:#ffe2a1;--notice-line:#6e5630;--placeholder:#a4b3cc;--number:#adc7ff;}}
+    @media(prefers-color-scheme:dark){:root{--navy:#091429;--ink:#f4f7ff;--blue:#243551;--mute:#b9c8de;--line:#a76a43;--bg:#080f20;--accent:#d5e1f4;--surface:#101b30;--field:#0d172a;--link:#f4f7ff;--selection:#101b30;--selection-line:#ffa464;--selection-ink:#fff;--focus:#ffa464;--error:#ffb5aa;--notice-bg:#18253c;--notice-ink:#e9effa;--notice-line:#a76a43;--placeholder:#a9b9d2;--number:#ffad75;--hero-end:#182a4b;}}
     *{box-sizing:border-box} [hidden]{display:none!important}
-    body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.9 Tahoma,Arial,sans-serif}
+    html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    @supports(overflow:clip){html{overflow-x:clip}}
+    body{margin:0;min-width:0;overflow-wrap:break-word;overflow-wrap:anywhere;background:var(--bg);color:var(--ink);font:1rem/1.9 Tahoma,Arial,sans-serif}
     button,input,textarea{font:inherit}
-    .wrap{max-width:1130px;margin:auto;padding:36px 26px 48px}
-    .hero{background:linear-gradient(125deg,var(--navy),#23446e);color:white;padding:clamp(24px,5vw,56px);border-radius:24px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .wrap{
+      width:100%;max-width:1130px;margin:auto;padding:36px 26px 48px;
+      padding-top:max(36px,env(safe-area-inset-top));
+      padding-right:max(26px,env(safe-area-inset-right));
+      padding-bottom:max(48px,env(safe-area-inset-bottom));
+      padding-left:max(26px,env(safe-area-inset-left));
+    }
+    .hero{background:linear-gradient(125deg,var(--navy),var(--hero-end,#23446e));color:white;padding:clamp(24px,5vw,56px);border-radius:24px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .hero>div:first-child{min-width:0}
     .brand{font-size:.87rem;color:var(--accent);margin:0 0 8px}
     h1{font-size:clamp(1.6rem,4vw,2.85rem);line-height:1.45;margin:0 0 10px}
     .hero p:last-child{max-width:61ch;margin:0;color:#e0e9ff}
@@ -22,9 +31,9 @@
     .orbit::before{content:"";width:67%;aspect-ratio:1;border:1px solid #89cbd7;border-radius:50%;grid-area:1/1}
     .orbit::after{content:"";width:33%;aspect-ratio:1;background:var(--accent);border-radius:50%;grid-area:1/1}
     .notice{padding:10px 15px;border:1px solid var(--notice-line);background:var(--notice-bg);color:var(--notice-ink);border-radius:12px;margin:16px 0 0;font-size:.88rem}
-    main{margin-top:18px;max-width:870px;margin-inline:auto}
+    main{width:100%;min-width:0;max-width:870px;margin:18px auto 0}
     .section-nav{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
-    .section-nav a{color:var(--link);text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:5px 11px;font-size:.84rem}
+    .section-nav a{color:var(--link);text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:.84rem;min-width:0;max-width:100%;min-height:44px;display:flex;align-items:center}
     .section-nav a:hover{text-decoration:underline}
     .survey-section,.actions{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(17px,4vw,32px);margin-bottom:14px;scroll-margin-top:14px}
     .survey-section h2{margin-bottom:20px;padding-inline-start:10px;border-inline-start:3px solid var(--number)}
@@ -35,21 +44,45 @@
     .num{display:inline-block;color:var(--number);margin-inline-end:.5em;min-width:1.65em;font-variant-numeric:tabular-nums}
     .hint{color:var(--mute);margin:0 0 9px;font-size:.8rem}
     .options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-    .option{display:flex;align-items:center;gap:9px;padding:8px 10px;line-height:1.65;border:1px solid var(--line);border-radius:9px;cursor:pointer;font-size:.87rem;min-height:45px}
+    .option{display:flex;min-width:0;align-items:center;gap:9px;padding:8px 10px;line-height:1.65;border:1px solid var(--line);border-radius:9px;cursor:pointer;font-size:.87rem;min-height:45px}
+    .option span{min-width:0}
     .option:has(:checked){background:var(--selection);border-color:var(--selection-line);color:var(--selection-ink)}
     .option input{accent-color:var(--blue);width:17px;height:17px;flex:none;margin:0}
-    .text-input{width:100%;border:1px solid var(--line);background:var(--field);color:var(--ink);border-radius:10px;padding:9px 12px;min-height:48px}
+    .text-input{display:block;width:100%;max-width:100%;min-width:0;font-size:16px;font-size:max(16px,1rem);border:1px solid var(--line);background:var(--field);color:var(--ink);border-radius:10px;padding:9px 12px;min-height:48px}
     .text-input::placeholder{color:var(--placeholder);opacity:1}
     textarea.text-input{resize:vertical;min-height:100px}.other{margin-top:8px}
     :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
     .error{color:var(--error);font-size:.87rem;margin:8px 0 0}
     .actions{display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:17px;justify-content:space-between}
-    button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:8px 18px;cursor:pointer;min-height:44px}
+    button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:8px 18px;cursor:pointer;min-height:44px;min-width:0;max-width:100%;white-space:normal}
     button.primary{background:var(--blue);border-color:var(--blue);color:white;font-weight:bold;margin-inline-start:auto}
     button:disabled{opacity:.65;cursor:default}
     .actions [role="status"]{margin:0;flex-basis:100%;color:var(--notice-ink)}
-    @media(max-width:760px){.wrap{padding:15px 12px 22px}.hero,.survey-section,.actions{border-radius:16px}.orbit{display:none}}
-    @media(max-width:480px){.options{grid-template-columns:1fr}}
+    @media(prefers-color-scheme:dark){
+      .survey-section h2{border-inline-start-color:var(--line)}
+      legend{color:var(--number)}
+      .option{color:#fff}
+      .option input{accent-color:#fff}
+      .option:has(:checked){background:transparent;border-color:var(--selection-line);color:#fff;box-shadow:0 0 0 1px var(--selection-line)}
+      button.primary{border-color:var(--line)}
+      button.primary:active,.section-nav a:active{border-color:var(--selection-line);box-shadow:0 0 0 1px var(--selection-line)}
+    }
+    @media(max-width:760px){
+      .wrap{padding:15px 12px 22px;
+        padding-top:max(15px,env(safe-area-inset-top));
+        padding-right:max(12px,env(safe-area-inset-right));
+        padding-bottom:calc(22px + env(safe-area-inset-bottom));
+        padding-left:max(12px,env(safe-area-inset-left))}
+      .hero,.survey-section,.actions{border-radius:16px}
+      .orbit{display:none}
+    }
+    @media(max-width:540px){
+      .options{grid-template-columns:minmax(0,1fr)}
+      .hero{padding:20px 16px}
+      .section-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+      .section-nav a{justify-content:center;text-align:center}
+      .actions button.primary{width:100%;margin-inline-start:0}
+    }
   </style>
 </head>
 <body>
