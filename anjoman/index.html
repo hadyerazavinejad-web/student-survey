@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#142850">
+  <title>نیازسنجی دانشجویی | انجمن علمی مهندسی کامپیوتر</title>
+  <style>
+    :root{color-scheme:light;--navy:#142850;--ink:#17253c;--blue:#244fbe;--mute:#52617a;--line:#d7e0ee;--bg:#eef3fa;--accent:#bfedef}
+    *{box-sizing:border-box} [hidden]{display:none!important}
+    body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.9 Tahoma,Arial,sans-serif}
+    button,input,textarea{font:inherit}
+    .wrap{max-width:1130px;margin:auto;padding:36px 26px 48px}
+    .hero{background:var(--navy);color:white;padding:clamp(24px,5vw,56px);border-radius:24px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{font-size:.87rem;color:var(--accent);margin:0 0 8px}
+    h1{font-size:clamp(1.6rem,4vw,2.85rem);line-height:1.45;margin:0 0 10px}
+    .hero p:last-child{max-width:61ch;margin:0;color:#e0e9ff}
+    .orbit{width:124px;flex:0 0 124px;aspect-ratio:1;border:1px solid #7892d0;border-radius:50%;display:grid;place-items:center}
+    .orbit::before{content:"";width:67%;aspect-ratio:1;border:1px solid #89cbd7;border-radius:50%;grid-area:1/1}
+    .orbit::after{content:"";width:33%;aspect-ratio:1;background:var(--accent);border-radius:50%;grid-area:1/1}
+    .notice{padding:10px 15px;border:1px solid #e5d4a5;background:#fff7df;color:#614c18;border-radius:12px;margin:16px 0 0;font-size:.88rem}
+    main{margin-top:18px;max-width:870px;margin-inline:auto}
+    .section-nav{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+    .section-nav a{color:#1a439f;text-decoration:none;background:white;border:1px solid var(--line);border-radius:9px;padding:5px 11px;font-size:.84rem}
+    .section-nav a:hover{text-decoration:underline}
+    .survey-section,.actions{background:white;border:1px solid var(--line);border-radius:20px;padding:clamp(17px,4vw,32px);margin-bottom:14px;scroll-margin-top:14px}
+    .survey-section h2{margin-bottom:16px}
+    .survey-section fieldset:last-child{margin-bottom:0}
+    h2{margin:0;line-height:1.65;font-size:clamp(1.25rem,2.5vw,1.65rem)}
+    fieldset{border:0;border-top:1px solid var(--line);min-width:0;margin:0 0 22px;padding:11px 0 0}
+    legend{padding:0 0 0 12px;font-weight:bold;max-width:100%;line-height:1.75}
+    .num{color:var(--blue);margin-inline-end:.55em}
+    .hint{color:var(--mute);margin:0 0 9px;font-size:.8rem}
+    .options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+    .option{display:flex;align-items:center;gap:9px;padding:8px 10px;line-height:1.65;border:1px solid var(--line);border-radius:9px;cursor:pointer;font-size:.87rem;min-height:45px}
+    .option:has(:checked){background:#edf3ff;border-color:#7295ec;color:#173d91}
+    .option input{accent-color:var(--blue);width:17px;height:17px;flex:none;margin:0}
+    .text-input{width:100%;border:1px solid var(--line);background:#f9fbff;color:var(--ink);border-radius:10px;padding:9px 12px;min-height:48px}
+    textarea.text-input{resize:vertical;min-height:100px}.other{margin-top:8px}
+    :focus-visible{outline:3px solid #3672ec;outline-offset:3px}
+    .error{color:#92221d;font-size:.87rem;margin:8px 0 0}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:17px;justify-content:space-between}
+    button{border:1px solid var(--line);background:white;color:var(--ink);border-radius:10px;padding:8px 18px;cursor:pointer;min-height:44px}
+    button.primary{background:var(--blue);border-color:var(--blue);color:white;font-weight:bold;margin-inline-start:auto}
+    button:disabled{opacity:.65;cursor:default}
+    @media(max-width:760px){.wrap{padding:15px 12px 22px}.hero,.survey-section,.actions{border-radius:16px}.orbit{display:none}}
+    @media(max-width:480px){.options{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <p class="brand">انجمن علمی مهندسی کامپیوتر · دانشگاه آزاد اسلامی واحد کرمان</p>
+        <h1>نیازسنجی دانشجویی</h1>
+        <p>با جواب‌هات به ما کمک کن برای کارگاه‌ها، رویدادها و محتوای انجمن برنامه‌ریزی کنیم. نوشتن اسم و راه ارتباطی اختیاریه.</p>
+      </div>
+      <div class="orbit" aria-hidden="true"></div>
+    </header>
+    <main>
+      <p id="preview-note" class="notice">نسخه‌ی پیش‌نمایش · ثبت پاسخ پس از اتصال به جدول فعال می‌شه.</p>
+      <nav class="section-nav" aria-label="بخش‌های پرسشنامه"><a href="#section-1">نیازهای دانشجویی</a> <a href="#section-2">کارگاه‌ها و رویدادها</a> <a href="#section-3">رسانه و پادکست</a> <a href="#section-4">پیشنهاد، همکاری و راه ارتباطی</a></nav>
+      <form id="survey" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="response_id">
+        <input type="hidden" name="website" value="">
+<section class="survey-section" id="section-1" aria-labelledby="heading-1">
+<h2 id="heading-1">نیازهای دانشجویی</h2>
+<fieldset id="q1"><legend><span class="num">۱</span>ورودی چه سالی هستی؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q1" value="0" required><span>۱۴۰۵</span></label>
+<label class="option"><input type="radio" name="q1" value="1" required><span>۱۴۰۴</span></label>
+<label class="option"><input type="radio" name="q1" value="2" required><span>۱۴۰۳</span></label>
+<label class="option"><input type="radio" name="q1" value="3" required><span>۱۴۰۲</span></label>
+<label class="option"><input type="radio" name="q1" value="4" required><span>۱۴۰۱ و قبل‌تر</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q2"><legend><span class="num">۲</span>قبل از دیدن این فرم، چقدر با انجمن علمی آشنا بودی؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q2" value="0" required><span>انجمن رو نمی‌شناختم</span></label>
+<label class="option"><input type="radio" name="q2" value="1" required><span>اسمش رو شنیده بودم</span></label>
+<label class="option"><input type="radio" name="q2" value="2" required><span>فعالیت‌هاش رو دنبال می‌کنم</span></label>
+<label class="option"><input type="radio" name="q2" value="3" required><span>قبلاً در یکی از برنامه‌ها شرکت کردم یا همکاری داشتم</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q3"><legend><span class="num">۳</span>الان در مسیر یادگیری و پیشرفتت، بیشتر کجا به کمک نیاز داری؟</legend>
+<p class="hint">تا ۲ گزینه انتخاب کن.</p>
+<div class="options" data-max="2">
+<label class="option"><input type="checkbox" name="q3" value="0"><span>شناخت شاخه‌های کامپیوتر و انتخاب مسیر</span></label>
+<label class="option"><input type="checkbox" name="q3" value="1"><span>یادگیری مبانی برنامه‌نویسی</span></label>
+<label class="option"><input type="checkbox" name="q3" value="2"><span>فهم درس‌های دانشگاه</span></label>
+<label class="option"><input type="checkbox" name="q3" value="3"><span>شروع یا تکمیل یک پروژه</span></label>
+<label class="option"><input type="checkbox" name="q3" value="4"><span>پیدا کردن هم‌تیمی</span></label>
+<label class="option"><input type="checkbox" name="q3" value="5"><span>آمادگی برای کارآموزی و بازار کار</span></label>
+<label class="option"><input type="checkbox" name="q3" value="6" data-exclusive><span>فعلاً نیاز مشخصی ندارم</span></label>
+<label class="option"><input type="checkbox" name="q3" value="7" data-other><span>سایر</span></label>
+</div>
+<input class="text-input other" name="q3_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۳" disabled hidden>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q4"><legend><span class="num">۴</span>اگر انجمن فقط فرصت اجرای یک برنامه در ماه آینده رو داشته باشه، کدوم رو انتخاب می‌کنی؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q4" value="0" required><span>کارگاه عملی</span></label>
+<label class="option"><input type="radio" name="q4" value="1" required><span>جلسه‌ی رفع اشکال درسی</span></label>
+<label class="option"><input type="radio" name="q4" value="2" required><span>گفت‌وگو با یک متخصص یا فارغ‌التحصیل</span></label>
+<label class="option"><input type="radio" name="q4" value="3" required><span>پروژه‌ی تیمی کوتاه</span></label>
+<label class="option"><input type="radio" name="q4" value="4" required><span>مسابقه یا چالش</span></label>
+<label class="option"><input type="radio" name="q4" value="5" required><span>بازدید از یک شرکت یا محیط کاری</span></label>
+<label class="option"><input type="radio" name="q4" value="6" required data-other><span>سایر</span></label>
+</div>
+<input class="text-input other" name="q4_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۴" disabled hidden>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q5"><legend><span class="num">۵</span>دوست داری انجمن روی کدوم حوزه‌ها بیشتر برنامه بذاره؟</legend>
+<p class="hint">تا ۳ گزینه انتخاب کن.</p>
+<div class="options" data-max="3">
+<label class="option"><input type="checkbox" name="q5" value="0"><span>توسعه‌ی وب</span></label>
+<label class="option"><input type="checkbox" name="q5" value="1"><span>هوش مصنوعی و تحلیل داده</span></label>
+<label class="option"><input type="checkbox" name="q5" value="2"><span>شبکه و امنیت</span></label>
+<label class="option"><input type="checkbox" name="q5" value="3"><span>طراحی رابط و تجربه‌ی کاربری</span></label>
+<label class="option"><input type="checkbox" name="q5" value="4"><span>برنامه‌نویسی موبایل</span></label>
+<label class="option"><input type="checkbox" name="q5" value="5"><span>بازی‌سازی</span></label>
+<label class="option"><input type="checkbox" name="q5" value="6"><span>سخت‌افزار و اینترنت اشیا</span></label>
+<label class="option"><input type="checkbox" name="q5" value="7" data-exclusive><span>هنوز حوزه‌ام رو انتخاب نکردم</span></label>
+<label class="option"><input type="checkbox" name="q5" value="8" data-other><span>سایر</span></label>
+</div>
+<input class="text-input other" name="q5_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۵" disabled hidden>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+</section>
+<section class="survey-section" id="section-2" aria-labelledby="heading-2">
+<h2 id="heading-2">کارگاه‌ها و رویدادها</h2>
+<fieldset id="q6"><legend><span class="num">۶</span>اگر همین ترم بخوای در یک کارگاه شرکت کنی، کدوم موضوع برات کاربردی‌تره؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q6" value="0" required><span>شروع برنامه‌نویسی با تمرین</span></label>
+<label class="option"><input type="radio" name="q6" value="1" required><span>Git و GitHub برای کار تیمی</span></label>
+<label class="option"><input type="radio" name="q6" value="2" required><span>ساخت اولین سایت</span></label>
+<label class="option"><input type="radio" name="q6" value="3" required><span>ساخت یک پروژه‌ی ساده با پایتون</span></label>
+<label class="option"><input type="radio" name="q6" value="4" required><span>استفاده‌ی عملی از ابزارهای هوش مصنوعی</span></label>
+<label class="option"><input type="radio" name="q6" value="5" required><span>رزومه و آمادگی برای کارآموزی</span></label>
+<label class="option"><input type="radio" name="q6" value="6" required data-other><span>سایر</span></label>
+</div>
+<input class="text-input other" name="q6_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۶" disabled hidden>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q7"><legend><span class="num">۷</span>برنامه‌ها بهتره از چه سطحی شروع بشن تا بتونی همراهشون پیش بری؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q7" value="0" required><span>از صفر و بدون پیش‌نیاز</span></label>
+<label class="option"><input type="radio" name="q7" value="1" required><span>مقدماتی همراه تمرین</span></label>
+<label class="option"><input type="radio" name="q7" value="2" required><span>پروژه‌محور برای کسی که مبانی رو بلده</span></label>
+<label class="option"><input type="radio" name="q7" value="3" required><span>تخصصی‌تر برای کسی که تجربه‌ی پروژه داره</span></label>
+<label class="option"><input type="radio" name="q7" value="4" required><span>بسته به موضوع فرق می‌کنه</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q8"><legend><span class="num">۸</span>کدوم شیوه‌ی برگزاری برات مناسب‌تره؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q8" value="0" required><span>حضوری در دانشگاه</span></label>
+<label class="option"><input type="radio" name="q8" value="1" required><span>آنلاین زنده</span></label>
+<label class="option"><input type="radio" name="q8" value="2" required><span>ویدیوی ضبط‌شده</span></label>
+<label class="option"><input type="radio" name="q8" value="3" required><span>حضوری همراه با دسترسی به فایل یا ضبط جلسه</span></label>
+<label class="option"><input type="radio" name="q8" value="4" required><span>فرقی نداره</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q9"><legend><span class="num">۹</span>چه زمانی معمولاً امکان شرکت داری؟</legend>
+<p class="hint">تا ۲ گزینه انتخاب کن.</p>
+<div class="options" data-max="2">
+<label class="option"><input type="checkbox" name="q9" value="0"><span>وسط هفته صبح</span></label>
+<label class="option"><input type="checkbox" name="q9" value="1"><span>وسط هفته ظهر</span></label>
+<label class="option"><input type="checkbox" name="q9" value="2"><span>وسط هفته عصر</span></label>
+<label class="option"><input type="checkbox" name="q9" value="3"><span>پنج‌شنبه</span></label>
+<label class="option"><input type="checkbox" name="q9" value="4"><span>جمعه</span></label>
+<label class="option"><input type="checkbox" name="q9" value="5" data-exclusive><span>زمان ثابتی ندارم</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q10"><legend><span class="num">۱۰</span>چه چیزی بیشتر ممکنه باعث بشه در یک برنامه شرکت نکنی؟</legend>
+<p class="hint">تا ۲ گزینه انتخاب کن.</p>
+<div class="options" data-max="2">
+<label class="option"><input type="checkbox" name="q10" value="0"><span>تداخل با کلاس یا کار</span></label>
+<label class="option"><input type="checkbox" name="q10" value="1"><span>اطلاع‌رسانی دیرهنگام</span></label>
+<label class="option"><input type="checkbox" name="q10" value="2"><span>هزینه</span></label>
+<label class="option"><input type="checkbox" name="q10" value="3"><span>سختی رفت‌وآمد</span></label>
+<label class="option"><input type="checkbox" name="q10" value="4"><span>مشخص نبودن سطح یا پیش‌نیاز</span></label>
+<label class="option"><input type="checkbox" name="q10" value="5"><span>معلوم نبودن اینکه آخر برنامه چی یاد می‌گیرم</span></label>
+<label class="option"><input type="checkbox" name="q10" value="6"><span>طولانی بودن برنامه</span></label>
+<label class="option"><input type="checkbox" name="q10" value="7" data-other><span>سایر</span></label>
+</div>
+<input class="text-input other" name="q10_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۱۰" disabled hidden>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+</section>
+<section class="survey-section" id="section-3" aria-labelledby="heading-3">
+<h2 id="heading-3">رسانه و پادکست</h2>
+<fieldset id="q11"><legend><span class="num">۱۱</span>از صفحه یا کانال انجمن بیشتر چه محتوایی رو دنبال می‌کنی؟</legend>
+<p class="hint">تا ۲ گزینه انتخاب کن.</p>
+<div class="options" data-max="2">
+<label class="option"><input type="checkbox" name="q11" value="0"><span>اطلاع‌رسانی رویدادها</span></label>
+<label class="option"><input type="checkbox" name="q11" value="1"><span>معرفی منابع و مسیرهای یادگیری</span></label>
+<label class="option"><input type="checkbox" name="q11" value="2"><span>آموزش کوتاه و کاربردی</span></label>
+<label class="option"><input type="checkbox" name="q11" value="3"><span>فرصت‌های کارآموزی و مسابقه</span></label>
+<label class="option"><input type="checkbox" name="q11" value="4"><span>معرفی پروژه‌های دانشجویی</span></label>
+<label class="option"><input type="checkbox" name="q11" value="5"><span>گفت‌وگو با دانشجوها و فارغ‌التحصیل‌ها</span></label>
+<label class="option"><input type="checkbox" name="q11" value="6" data-other><span>سایر</span></label>
+</div>
+<input class="text-input other" name="q11_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۱۱" disabled hidden>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q12"><legend><span class="num">۱۲</span>اگه انجمن پادکست منتشر کنه، چقدر احتمال داره یک قسمت رو گوش بدی؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q12" value="0" required><span>احتمالاً گوش می‌دم</span></label>
+<label class="option"><input type="radio" name="q12" value="1" required><span>اگه موضوعش برام جذاب باشه گوش می‌دم</span></label>
+<label class="option"><input type="radio" name="q12" value="2" required><span>معمولاً پادکست گوش نمی‌دم</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q13" data-podcast><legend><span class="num">۱۳</span>کدوم موضوع باعث می‌شه قسمت اول پادکست رو باز کنی؟</legend>
+<p class="hint">تا ۲ گزینه انتخاب کن.</p>
+<div class="options" data-max="2">
+<label class="option"><input type="checkbox" name="q13" value="0"><span>چطور شاخه‌ی مناسب خودم رو پیدا کنم؟</span></label>
+<label class="option"><input type="checkbox" name="q13" value="1"><span>چطور اولین پروژه‌ام رو شروع کنم؟</span></label>
+<label class="option"><input type="checkbox" name="q13" value="2"><span>چطور برای اولین کارآموزی آماده بشم؟</span></label>
+<label class="option"><input type="checkbox" name="q13" value="3"><span>یک روز کاری واقعی در یکی از شغل‌های کامپیوتر چطوره؟</span></label>
+<label class="option"><input type="checkbox" name="q13" value="4"><span>تجربه‌ی اولین پروژه‌ی تیمی از زبان بچه‌های دانشگاه</span></label>
+<label class="option"><input type="checkbox" name="q13" value="5"><span>چطور از هوش مصنوعی موقع یادگیری استفاده کنیم؟</span></label>
+<label class="option"><input type="checkbox" name="q13" value="6" data-other><span>سایر</span></label>
+</div>
+<input class="text-input other" name="q13_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۱۳" disabled hidden>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q14" data-podcast><legend><span class="num">۱۴</span>برای یک قسمت معمولی پادکست، چه مدتی رو ترجیح می‌دی؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q14" value="0" required><span>زیر ۵ دقیقه</span></label>
+<label class="option"><input type="radio" name="q14" value="1" required><span>۵ تا ۱۰ دقیقه</span></label>
+<label class="option"><input type="radio" name="q14" value="2" required><span>۱۱ تا ۲۰ دقیقه</span></label>
+<label class="option"><input type="radio" name="q14" value="3" required><span>۲۱ تا ۳۰ دقیقه</span></label>
+<label class="option"><input type="radio" name="q14" value="4" required><span>بیشتر از ۳۰ دقیقه</span></label>
+<label class="option"><input type="radio" name="q14" value="5" required><span>بستگی به موضوع داره</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q15" data-podcast><legend><span class="num">۱۵</span>پادکست با چه قالبی برات جذاب‌تره؟</legend>
+<p class="hint">یک گزینه انتخاب کن.</p>
+<div class="options" data-max="1">
+<label class="option"><input type="radio" name="q15" value="0" required><span>توضیح کوتاه توسط یک نفر</span></label>
+<label class="option"><input type="radio" name="q15" value="1" required><span>گفت‌وگو با یک دانشجو و شنیدن تجربه‌ی واقعی</span></label>
+<label class="option"><input type="radio" name="q15" value="2" required><span>مصاحبه با متخصص یا فارغ‌التحصیل</span></label>
+<label class="option"><input type="radio" name="q15" value="3" required><span>پاسخ به سؤال‌های بچه‌ها</span></label>
+<label class="option"><input type="radio" name="q15" value="4" required><span>میزگرد چندنفره</span></label>
+<label class="option"><input type="radio" name="q15" value="5" required><span>فرقی نداره</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+</section>
+<section class="survey-section" id="section-4" aria-labelledby="heading-4">
+<h2 id="heading-4">پیشنهاد، همکاری و راه ارتباطی</h2>
+<fieldset id="q16"><legend><span class="num">۱۶</span>اگه یک پیشنهاد مشخص برای انجمن داری که توی گزینه‌ها نبود، چی پیشنهاد می‌دی؟</legend>
+<textarea class="text-input" name="q16" maxlength="1000" dir="auto" aria-label="پیشنهاد اختیاری" placeholder="پیشنهادت رو بنویس (اختیاری)"></textarea>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q17"><legend><span class="num">۱۷</span>اگه دوست داری با انجمن همکاری کنی، به کدوم کارها علاقه داری؟</legend>
+<p class="hint">تا ۲ گزینه انتخاب کن.</p>
+<div class="options" data-max="2">
+<label class="option"><input type="checkbox" name="q17" value="0"><span>تولید محتوا یا پادکست</span></label>
+<label class="option"><input type="checkbox" name="q17" value="1"><span>طراحی گرافیک یا تدوین</span></label>
+<label class="option"><input type="checkbox" name="q17" value="2"><span>برنامه‌نویسی و پروژه‌های فنی</span></label>
+<label class="option"><input type="checkbox" name="q17" value="3"><span>آموزش و آماده‌سازی منابع</span></label>
+<label class="option"><input type="checkbox" name="q17" value="4"><span>پژوهش و مصاحبه</span></label>
+<label class="option"><input type="checkbox" name="q17" value="5"><span>هماهنگی و اجرای رویدادها</span></label>
+<label class="option"><input type="checkbox" name="q17" value="6" data-exclusive><span>هنوز نمی‌دونم</span></label>
+<label class="option"><input type="checkbox" name="q17" value="7" data-exclusive><span>فعلاً قصد همکاری ندارم</span></label>
+</div>
+<p class="error" aria-live="polite" hidden></p></fieldset>
+<fieldset id="q18"><legend><span class="num">۱۸</span>اگر مایلی برای اطلاع‌رسانی یا هماهنگی همکاری باهات در ارتباط باشیم، یک راه ارتباطی بنویس.</legend>
+<p class="hint" id="contact-hint">اختیاری · آیدی تلگرام، ایمیل یا شماره تماس. می‌تونی اسمت رو هم بنویسی. این اطلاعات فقط برای اطلاع‌رسانی یا هماهنگی انجمن استفاده می‌شه.</p><input class="text-input" name="q18" maxlength="180" dir="auto" aria-label="راه ارتباطی اختیاری" aria-describedby="contact-hint">
+<p class="error" aria-live="polite" hidden></p></fieldset>
+</section>
+        <div class="actions">
+          <button type="submit" class="primary" disabled>ارسال پاسخ‌ها</button>
+        </div>
+      </form>
+    </main>
+  </div>
+  <script>
+    // Paste the deployed Google Apps Script web app /exec URL between the quotes.
+    const SUBMISSION_URL = "";
+    const form = document.querySelector("#survey");
+    const submitButton = form.querySelector('button[type="submit"]');
+    const configured = /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(SUBMISSION_URL);
+
+    function showError(field, text) {
+      const error = field.querySelector(".error");
+      error.textContent = text;
+      error.hidden = !text;
+    }
+
+    function syncQuestion(field) {
+      const other = field.querySelector(".other");
+      if (other) {
+        const selected = Boolean(field.querySelector("input[data-other]:checked"));
+        other.hidden = !selected;
+        other.disabled = !selected;
+      }
+    }
+
+    function syncPodcast() {
+      const interest = form.querySelector('[name="q12"]:checked');
+      for (const field of form.querySelectorAll("[data-podcast]")) {
+        field.hidden = interest?.value === "2";
+        field.disabled = field.hidden;
+      }
+    }
+
+    form.addEventListener("change", event => {
+      const option = event.target;
+      const options = option.closest(".options");
+      if (!options) return;
+      const field = options.closest("fieldset");
+      showError(field, "");
+      if (option.type === "checkbox" && option.checked) {
+        const checked = options.querySelectorAll("input:checked");
+        const max = Number(options.dataset.max);
+        if (option.hasAttribute("data-exclusive")) {
+          for (const input of checked) if (input !== option) input.checked = false;
+        } else {
+          for (const input of checked) if (input.hasAttribute("data-exclusive")) input.checked = false;
+          if (options.querySelectorAll("input:checked").length > max) {
+            option.checked = false;
+            showError(field, "حداکثر " + max.toLocaleString("fa-IR") + " گزینه قابل انتخابه.");
+          }
+        }
+      }
+      syncQuestion(field);
+      if (option.name === "q12") syncPodcast();
+    });
+
+    form.addEventListener("submit", event => {
+      if (!configured) {
+        event.preventDefault();
+        return;
+      }
+      for (const options of form.querySelectorAll("fieldset:not([disabled]) .options")) {
+        if (options.querySelector("input:checked")) continue;
+        event.preventDefault();
+        showError(options.closest("fieldset"), "برای ثبت، به این سؤال جواب بده.");
+        options.querySelector("input").focus();
+        return;
+      }
+      submitButton.disabled = true;
+      submitButton.textContent = "در حال ارسال…";
+    });
+
+    window.addEventListener("pageshow", () => {
+      for (const field of form.querySelectorAll("fieldset")) syncQuestion(field);
+      syncPodcast();
+      if (configured) {
+        submitButton.disabled = false;
+        submitButton.textContent = "ارسال پاسخ‌ها";
+      }
+    });
+
+    if (configured) {
+      form.elements.response_id.value = "r" + Array.from(
+        crypto.getRandomValues(new Uint8Array(16)),
+        byte => byte.toString(16).padStart(2, "0")
+      ).join("");
+      form.action = SUBMISSION_URL;
+      document.querySelector("#preview-note").hidden = true;
+      submitButton.disabled = false;
+    }
+  </script>
+</body>
+</html>
