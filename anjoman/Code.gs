@@ -304,7 +304,7 @@ const QUESTIONS = [
     "stage": 3,
     "title": "نام و نام‌خانوادگی شما چیست؟",
     "limit": 120,
-    "required": true,
+    "required": false,
     "placeholder": "نام و نام‌خانوادگی",
     "hint": ""
   },
@@ -367,7 +367,11 @@ function doPost(event) {
       sheet.appendRow([new Date(), ids[0], ...fields]);
       SpreadsheetApp.flush();
     }
-    return receipt_("پاسخت ثبت شد", "ممنون که برای برنامه‌های انجمن نظر دادی.");
+    return receipt_(
+      "با افتخار، پاسخ شما ثبت شد!",
+      "از اینکه برای آینده‌ی انجمن وقت گذاشتی، ممنونیم. نظر تو کمک می‌کنه کارگاه‌ها و برنامه‌هایی برگزار کنیم که به نیاز و علاقه‌ی دانشجوها نزدیک‌تر باشن.",
+      true
+    );
   } catch (error) {
     console.error(error.message);
     return receipt_("ثبت پاسخ انجام نشد", "به پرسشنامه برگردید و دوباره ارسال کنید.");
@@ -422,13 +426,18 @@ function textAnswer_(values, limit, required) {
   return /^[=+@'-]/.test(value) || /^\p{Nd}+$/u.test(value) ? "'" + value : value;
 }
 
-function receipt_(title, message) {
+function receipt_(title, message, saved) {
+  const follow = saved
+    ? '<p class="follow">اگر دوست داری خبر برنامه‌های بعدی رو بگیری، خوشحال می‌شیم در کانال تلگرام انجمن همراه‌مون باشی.</p>' +
+      '<a href="https://t.me/ceiau" target="_blank" rel="noopener noreferrer">رفتن به کانال انجمن علمی</a>'
+    : '';
+
   return HtmlService.createHtmlOutput(
     '<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">' +
     '<style>body{margin:0;background:#eef3fa;color:#17253c;font:16px/1.9 Tahoma,Arial,sans-serif}' +
     'main{max-width:560px;margin:12vh auto 0;padding:28px;background:#fff;border:1px solid #d7e0ee;border-radius:18px}' +
-    'h1{font-size:1.55rem;margin:0 0 6px;color:#142850}p{margin:0}@media(max-width:620px){main{margin:8vh 14px 0}}</style>' +
-    '</head><body><main><h1>' + title + '</h1><p>' + message + '</p></main></body></html>'
+    'h1{font-size:1.55rem;margin:0 0 6px;color:#142850}p{margin:0}.follow{margin-top:16px}a{display:inline-block;margin-top:12px;padding:8px 16px;background:#142850;color:#fff;border-radius:10px;text-decoration:none}a:focus-visible{outline:3px solid #3672ec;outline-offset:3px}@media(max-width:620px){main{margin:8vh 14px 0}}</style>' +
+    '</head><body><main><h1>' + title + '</h1><p>' + message + '</p>' + follow + '</main></body></html>'
   ).setTitle(title).addMetaTag("viewport", "width=device-width, initial-scale=1");
 }
 
