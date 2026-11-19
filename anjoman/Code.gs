@@ -324,20 +324,22 @@ function doGet() {
 
 function doPost(event) {
   const params = event && event.parameters;
+  const theme = params && params.ui_theme ? params.ui_theme[0] : "";
+  const receipt = (title, message, saved) => receipt_(title, message, saved, theme);
   if (!params || event.contentLength > 24000 || (params.website || []).some(Boolean)) {
-    return receipt_("پاسخ ثبت نشد", "به پرسشنامه برگردید و دوباره تلاش کنید.");
+    return receipt("پاسخ ثبت نشد", "به پرسشنامه برگردید و دوباره تلاش کنید.");
   }
 
   const ids = params.response_id || [];
   if (ids.length !== 1 || !/^r[a-f0-9]{32}$/.test(ids[0])) {
-    return receipt_("پاسخ ثبت نشد", "پرسشنامه را از لینک انجمن باز کنید و دوباره تلاش کنید.");
+    return receipt("پاسخ ثبت نشد", "پرسشنامه را از لینک انجمن باز کنید و دوباره تلاش کنید.");
   }
 
   let fields;
   try {
     fields = readAnswers_(params);
   } catch (error) {
-    return receipt_("پاسخ ثبت نشد", "به پرسشنامه برگردید و پاسخ‌های لازم را کامل کنید.");
+    return receipt("پاسخ ثبت نشد", "به پرسشنامه برگردید و پاسخ‌های لازم را کامل کنید.");
   }
 
   const lock = LockService.getScriptLock();
@@ -367,14 +369,14 @@ function doPost(event) {
       sheet.appendRow([new Date(), ids[0], ...fields]);
       SpreadsheetApp.flush();
     }
-    return receipt_(
+    return receipt(
       "با افتخار، پاسخ شما ثبت شد!",
       "از اینکه برای آینده‌ی انجمن وقت گذاشتی، ممنونیم. نظر تو کمک می‌کنه کارگاه‌ها و برنامه‌هایی برگزار کنیم که به نیاز و علاقه‌ی دانشجوها نزدیک‌تر باشن.",
       true
     );
   } catch (error) {
     console.error(error.message);
-    return receipt_("ثبت پاسخ انجام نشد", "به پرسشنامه برگردید و دوباره ارسال کنید.");
+    return receipt("ثبت پاسخ انجام نشد", "به پرسشنامه برگردید و دوباره ارسال کنید.");
   } finally {
     if (lock.hasLock()) lock.releaseLock();
   }
@@ -426,7 +428,8 @@ function textAnswer_(values, limit, required) {
   return /^[=+@'-]/.test(value) || /^\p{Nd}+$/u.test(value) ? "'" + value : value;
 }
 
-function receipt_(title, message, saved) {
+function receipt_(title, message, saved, theme) {
+  const themeAttribute = theme === "light" || theme === "dark" ? ' data-theme="' + theme + '"' : "";
   const follow = saved
     ? '<p class="follow">اگر دوست داری خبر برنامه‌های بعدی رو بگیری، خوشحال می‌شیم در کانال تلگرام انجمن همراه‌مون باشی.</p>' +
       '<a class="channel" href="https://t.me/ceiau" target="_blank" rel="noopener noreferrer">رفتن به کانال انجمن علمی</a>' +
@@ -434,12 +437,13 @@ function receipt_(title, message, saved) {
     : '';
 
   return HtmlService.createHtmlOutput(
-    '<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">' +
-    `<meta name="color-scheme" content="light dark"><style>:root{color-scheme:light dark;--bg:#eef3fa;--surface:#fff;--ink:#17253c;--heading:#142850;--line:#d7e0ee;--link:#244fbe;--button:#142850;--focus:#3672ec}
-@media(prefers-color-scheme:dark){:root{--bg:#080f20;--surface:#101b30;--ink:#f4f7ff;--heading:#f4f7ff;--line:#a76a43;--link:#f4f7ff;--button:#243551;--focus:#ffa464}}
+    '<!doctype html><html lang="fa" dir="rtl"' + themeAttribute + '><head><meta charset="utf-8">' +
+    `<meta name="color-scheme" content="light dark"><style>:root{color-scheme:light;--bg:#eef3fa;--surface:#fff;--ink:#17253c;--heading:#142850;--line:#d7e0ee;--link:#244fbe;--button:#142850;--focus:#3672ec}
+@media(prefers-color-scheme:dark){:root:not([data-theme]){color-scheme:dark;--bg:#080f20;--surface:#101b30;--ink:#f4f7ff;--heading:#f4f7ff;--line:#a76a43;--link:#f4f7ff;--button:#243551;--focus:#ffa464}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#080f20;--surface:#101b30;--ink:#f4f7ff;--heading:#f4f7ff;--line:#a76a43;--link:#f4f7ff;--button:#243551;--focus:#ffa464}
 *{box-sizing:border-box}html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @supports(overflow:clip){html{overflow-x:clip}}
-body{margin:0;min-width:0;overflow-wrap:break-word;overflow-wrap:anywhere;background:var(--bg);color:var(--ink);font:16px/1.9 Tahoma,Arial,sans-serif}
+body{margin:0;min-width:0;direction:rtl;text-align:right;overflow-wrap:break-word;overflow-wrap:anywhere;background:var(--bg);color:var(--ink);font:16px/1.9 Tahoma,Arial,sans-serif}
 main{width:calc(100% - 28px);max-width:560px;min-width:0;margin:12vh auto 24px;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:20px}
 h1{font-size:clamp(1.3rem,5vw,1.65rem);margin:0 0 8px;color:var(--heading)}p{margin:0}.follow{margin-top:16px}
 a{color:var(--link)}.channel{display:inline-flex;align-items:center;justify-content:center;max-width:100%;min-width:0;text-align:center;min-height:44px;margin-top:12px;padding:8px 16px;background:var(--button);color:#fff;border:1px solid var(--line);border-radius:10px;text-decoration:none}
