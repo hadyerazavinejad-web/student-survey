@@ -17,9 +17,9 @@
   </script>
   <title>نیازسنجی دانشجویی | انجمن علمی مهندسی کامپیوتر</title>
   <style>
-    :root{color-scheme:light;--navy:#142850;--ink:#17253c;--blue:#244fbe;--mute:#52617a;--line:#d7e0ee;--bg:#eef3fa;--accent:#bfedef;--surface:#fff;--field:#f9fbff;--link:#1a439f;--selection:#edf3ff;--selection-line:#7295ec;--selection-ink:#173d91;--focus:#3672ec;--error:#92221d;--notice-bg:#fff7df;--notice-ink:#614c18;--notice-line:#e5d4a5;--placeholder:#606f86;--number:#244fbe;--orange-line:#a85835;}
-    @media(prefers-color-scheme:dark){:root:not([data-theme]){color-scheme:dark;--navy:#091429;--ink:#f4f7ff;--blue:#243551;--mute:#b9c8de;--line:#2c3b51;--bg:#080f20;--accent:#d5e1f4;--surface:#101b30;--field:#0d172a;--link:#f4f7ff;--selection:#101b30;--selection-line:#a98168;--selection-ink:#fff;--focus:#a9bdd8;--error:#ffb5aa;--notice-bg:#18253c;--notice-ink:#e9effa;--notice-line:#43526b;--placeholder:#a9b9d2;--number:#d9ad91;--orange-line:#a98168;--hero-end:#182a4b;}}
-    :root[data-theme="dark"]{color-scheme:dark;--navy:#091429;--ink:#f4f7ff;--blue:#243551;--mute:#b9c8de;--line:#2c3b51;--bg:#080f20;--accent:#d5e1f4;--surface:#101b30;--field:#0d172a;--link:#f4f7ff;--selection:#101b30;--selection-line:#a98168;--selection-ink:#fff;--focus:#a9bdd8;--error:#ffb5aa;--notice-bg:#18253c;--notice-ink:#e9effa;--notice-line:#43526b;--placeholder:#a9b9d2;--number:#d9ad91;--orange-line:#a98168;--hero-end:#182a4b;}
+    :root{color-scheme:light;--navy:#142850;--ink:#17253c;--blue:#244fbe;--mute:#52617a;--line:#d7e0ee;--bg:#eef3fa;--accent:#bfedef;--surface:#fff;--field:#f9fbff;--link:#1a439f;--selection:#edf3ff;--selection-line:#7295ec;--selection-ink:#173d91;--focus:#3672ec;--error:#92221d;--notice-bg:#fff7df;--notice-ink:#614c18;--notice-line:#e5d4a5;--placeholder:#606f86;--number:#244fbe;--orange-line:#a85835;--category-border:#273f64;--question-border:#b5cbe8;}
+    @media(prefers-color-scheme:dark){:root:not([data-theme]){color-scheme:dark;--navy:#091429;--ink:#f4f7ff;--blue:#243551;--mute:#b9c8de;--line:#2c3b51;--bg:#080f20;--accent:#d5e1f4;--surface:#101b30;--field:#0d172a;--link:#f4f7ff;--selection:#101b30;--selection-line:#a98168;--selection-ink:#fff;--focus:#a9bdd8;--error:#ffb5aa;--notice-bg:#18253c;--notice-ink:#e9effa;--notice-line:#43526b;--placeholder:#a9b9d2;--number:#d9ad91;--orange-line:#a98168;--category-border:#98735f;--question-border:#654f45;--hero-end:#182a4b;}}
+    :root[data-theme="dark"]{color-scheme:dark;--navy:#091429;--ink:#f4f7ff;--blue:#243551;--mute:#b9c8de;--line:#2c3b51;--bg:#080f20;--accent:#d5e1f4;--surface:#101b30;--field:#0d172a;--link:#f4f7ff;--selection:#101b30;--selection-line:#a98168;--selection-ink:#fff;--focus:#a9bdd8;--error:#ffb5aa;--notice-bg:#18253c;--notice-ink:#e9effa;--notice-line:#43526b;--placeholder:#a9b9d2;--number:#d9ad91;--orange-line:#a98168;--category-border:#98735f;--question-border:#654f45;--hero-end:#182a4b;}
     *{box-sizing:border-box} [hidden]{display:none!important}
     html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
     @supports(overflow:clip){html{overflow-x:clip}}
@@ -41,7 +41,7 @@
     .orbit::before{content:"";width:67%;aspect-ratio:1;border:1px solid #89cbd7;border-radius:50%;grid-area:1/1}
     .orbit::after{content:"";width:33%;aspect-ratio:1;background:var(--accent);border-radius:50%;grid-area:1/1}
     .notice{padding:10px 15px;border:1px solid var(--notice-line);background:var(--notice-bg);color:var(--notice-ink);border-radius:12px;margin:16px 0 0;font-size:.88rem}
-    main{width:100%;min-width:0;max-width:870px;margin:18px auto 0}
+    main{width:100%;min-width:0;max-width:980px;margin:18px auto 0}
     .theme-tools{display:flex;justify-content:flex-start;margin:0 0 12px}
     #theme-toggle{display:inline-flex;align-items:center;color:var(--link);padding-inline:12px}
     #theme-toggle:hover{background:var(--field)}
@@ -49,12 +49,13 @@
     .section-nav a{color:var(--link);text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:.84rem;min-width:0;max-width:100%;min-height:44px;display:flex;align-items:center}
     .section-nav a:hover{text-decoration:underline}
     .survey-section,.actions{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(17px,4vw,32px);margin-bottom:14px;scroll-margin-top:14px}
+    .survey-section{border-color:var(--category-border);padding-inline:clamp(12px,3vw,29px)}
     .survey-section h2{margin-bottom:20px;padding-inline-start:10px;border-inline-start:3px solid var(--orange-line)}
     .survey-section fieldset:last-child{margin-bottom:0}
     h2{margin:0;line-height:1.65;font-size:clamp(1.25rem,2.5vw,1.65rem)}
-    fieldset{border:1px solid var(--line);border-radius:13px;min-width:0;min-inline-size:0;margin:0 0 16px;padding:9px clamp(9px,2.5vw,16px) 13px}
-    legend{padding:0 6px;font-weight:bold;max-width:100%;line-height:1.75}
-    .question-label{display:grid;grid-template-columns:max-content minmax(0,1fr);align-items:baseline;gap:.42em}
+    fieldset{border:1px solid var(--question-border);border-radius:13px;min-width:0;min-inline-size:0;margin:0 0 16px;padding:9px clamp(9px,2.5vw,16px) 13px}
+    legend{padding:0 6px;font-weight:bold;max-width:100%;line-height:1.55;font-size:clamp(.96rem,1.3vw,1.1rem)}
+    .question-label{display:grid;grid-template-columns:max-content minmax(0,1fr);align-items:baseline;gap:.35em}
     .question-number{display:inline-flex;align-items:baseline;gap:.15em;direction:rtl;color:var(--number)}
     .num{min-width:2ch;text-align:right;font-variant-numeric:tabular-nums}
     .question-text{min-width:0}
@@ -99,6 +100,9 @@
     @media(max-width:540px){
       .options{grid-template-columns:minmax(0,1fr)}
       .hero{padding:20px 16px}
+      .survey-section{padding-inline:10px}
+      fieldset{padding-inline:8px}
+      legend{padding-inline:4px}
       .section-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
       .section-nav a{justify-content:flex-start;text-align:right}
       .actions button.primary{width:100%;margin-inline-start:0}
@@ -142,7 +146,7 @@
 </div>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q3">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۳</bdi><span class="question-dot">.</span></span><span class="question-text">پیش از دیدن این فرم، چقدر با انجمن علمی مهندسی کامپیوتر آشنا بودید؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۳</bdi><span class="question-dot">.</span></span><span class="question-text">از قبل چقدر با انجمن آشنا بودید؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q3" value="0" required><span>انجمن رو نمی‌شناختم</span></label>
@@ -152,7 +156,7 @@
 </div>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q4">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۴</bdi><span class="question-dot">.</span></span><span class="question-text">از چه طریقی با این پرسشنامه آشنا شدید؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۴</bdi><span class="question-dot">.</span></span><span class="question-text">لینک پرسشنامه را کجا دیدید؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q4" value="0" required><span>گروه یا کانال انجمن</span></label>
@@ -165,7 +169,7 @@
 <input class="text-input other" name="q4_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۴" disabled hidden>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q5">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۵</bdi><span class="question-dot">.</span></span><span class="question-text">الان برای یادگیری یا پیشرفت تحصیلی، بیشتر به چه کمکی نیاز دارید؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۵</bdi><span class="question-dot">.</span></span><span class="question-text">در یادگیری بیشتر به چه کمکی نیاز دارید؟</span></span></legend>
 <p class="hint">حداکثر ۲ گزینه انتخاب کنید.</p>
 <div class="options" data-max="2">
 <label class="option"><input type="checkbox" name="q5" value="0"><span>شناخت شاخه‌های کامپیوتر و انتخاب مسیر</span></label>
@@ -180,7 +184,7 @@
 <input class="text-input other" name="q5_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۵" disabled hidden>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q6">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۶</bdi><span class="question-dot">.</span></span><span class="question-text">دوست دارید اولین برنامه‌ی انجمن چه باشد؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۶</bdi><span class="question-dot">.</span></span><span class="question-text">اولین برنامه‌ی انجمن چه باشد؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q6" value="0" required><span>کارگاه عملی</span></label>
@@ -194,7 +198,7 @@
 <input class="text-input other" name="q6_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۶" disabled hidden>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q7">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۷</bdi><span class="question-dot">.</span></span><span class="question-text">دوست داری انجمن روی کدوم حوزه‌ها بیشتر برنامه بذاره؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۷</bdi><span class="question-dot">.</span></span><span class="question-text">انجمن در چه حوزه‌هایی برنامه برگزار کند؟</span></span></legend>
 <p class="hint">حداکثر ۳ گزینه انتخاب کنید.</p>
 <div class="options" data-max="3">
 <label class="option"><input type="checkbox" name="q7" value="0"><span>توسعه‌ی وب</span></label>
@@ -213,7 +217,7 @@
 <section class="survey-section" id="section-2" aria-labelledby="heading-2">
 <h2 id="heading-2">کارگاه‌ها و رویدادها</h2>
 <fieldset id="q8">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۸</bdi><span class="question-dot">.</span></span><span class="question-text">اگر همین ترم بخواهید در یک کارگاه شرکت کنید، کدام موضوع برایتان کاربردی‌تر است؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۸</bdi><span class="question-dot">.</span></span><span class="question-text">کدام کارگاه این ترم برایتان کاربردی‌تر است؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q8" value="0" required><span>شروع برنامه‌نویسی با تمرین</span></label>
@@ -227,7 +231,7 @@
 <input class="text-input other" name="q8_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۸" disabled hidden>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q9">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۹</bdi><span class="question-dot">.</span></span><span class="question-text">برنامه‌ها بهتره از چه سطحی شروع بشن تا بتونی همراهشون پیش بری؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۹</bdi><span class="question-dot">.</span></span><span class="question-text">برنامه‌ها از چه سطحی شروع شوند؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q9" value="0" required><span>از صفر و بدون پیش‌نیاز</span></label>
@@ -238,7 +242,7 @@
 </div>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q10">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۰</bdi><span class="question-dot">.</span></span><span class="question-text">کدوم شیوه‌ی برگزاری برات مناسب‌تره؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۰</bdi><span class="question-dot">.</span></span><span class="question-text">کدام شیوه‌ی برگزاری برایتان بهتر است؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q10" value="0" required><span>حضوری در دانشگاه</span></label>
@@ -249,7 +253,7 @@
 </div>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q11">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۱</bdi><span class="question-dot">.</span></span><span class="question-text">چه زمانی معمولاً امکان شرکت داری؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۱</bdi><span class="question-dot">.</span></span><span class="question-text">چه زمانی می‌توانید شرکت کنید؟</span></span></legend>
 <p class="hint">حداکثر ۲ گزینه انتخاب کنید.</p>
 <div class="options" data-max="2">
 <label class="option"><input type="checkbox" name="q11" value="0"><span>وسط هفته صبح</span></label>
@@ -261,7 +265,7 @@
 </div>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q12">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۲</bdi><span class="question-dot">.</span></span><span class="question-text">چه چیزی بیشتر ممکنه باعث بشه در یک برنامه شرکت نکنی؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۲</bdi><span class="question-dot">.</span></span><span class="question-text">چه چیزی مانع شرکت شما می‌شود؟</span></span></legend>
 <p class="hint">حداکثر ۲ گزینه انتخاب کنید.</p>
 <div class="options" data-max="2">
 <label class="option"><input type="checkbox" name="q12" value="0"><span>تداخل با کلاس یا کار</span></label>
@@ -276,7 +280,7 @@
 <input class="text-input other" name="q12_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۱۲" disabled hidden>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q13">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۳</bdi><span class="question-dot">.</span></span><span class="question-text">اگر انجمن یک برنامه‌ی مشترک برای دانشجوهای رشته‌های مختلف برگزار کند، کدام موضوع را ترجیح می‌دهید؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۳</bdi><span class="question-dot">.</span></span><span class="question-text">چه موضوعی برای برنامه‌ی بین‌رشته‌ای جذاب‌تر است؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q13" value="0" required><span>ابزارهای هوش مصنوعی برای درس و پروژه</span></label>
@@ -293,7 +297,7 @@
 <section class="survey-section" id="section-3" aria-labelledby="heading-3">
 <h2 id="heading-3">رسانه و پادکست</h2>
 <fieldset id="q14">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۴</bdi><span class="question-dot">.</span></span><span class="question-text">کدام محتوا باعث می‌شود صفحه یا کانال انجمن را دنبال کنید؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۴</bdi><span class="question-dot">.</span></span><span class="question-text">چه محتوایی را در رسانه‌ی انجمن دنبال می‌کنید؟</span></span></legend>
 <p class="hint">حداکثر ۲ گزینه انتخاب کنید.</p>
 <div class="options" data-max="2">
 <label class="option"><input type="checkbox" name="q14" value="0"><span>اطلاع‌رسانی رویدادها</span></label>
@@ -307,7 +311,7 @@
 <input class="text-input other" name="q14_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۱۴" disabled hidden>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q15">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۵</bdi><span class="question-dot">.</span></span><span class="question-text">دوست دارید خبر برنامه‌های انجمن از چه طریقی به شما برسد؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۵</bdi><span class="question-dot">.</span></span><span class="question-text">خبر برنامه‌ها از چه راهی به شما برسد؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q15" value="0" required><span>تلگرام</span></label>
@@ -320,7 +324,7 @@
 <input class="text-input other" name="q15_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۱۵" disabled hidden>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q16">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۶</bdi><span class="question-dot">.</span></span><span class="question-text">اگر انجمن پادکست منتشر کند، چقدر احتمال دارد یک قسمت را گوش بدهید؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۶</bdi><span class="question-dot">.</span></span><span class="question-text">اگر انجمن پادکست بسازد، گوش می‌دهید؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q16" value="0" required><span>احتمالاً گوش می‌دم</span></label>
@@ -329,7 +333,7 @@
 </div>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q17" data-podcast>
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۷</bdi><span class="question-dot">.</span></span><span class="question-text">کدوم موضوع باعث می‌شه قسمت اول پادکست رو باز کنی؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۷</bdi><span class="question-dot">.</span></span><span class="question-text">موضوع قسمت اول پادکست چه باشد؟</span></span></legend>
 <p class="hint">حداکثر ۲ گزینه انتخاب کنید.</p>
 <div class="options" data-max="2">
 <label class="option"><input type="checkbox" name="q17" value="0"><span>چطور شاخه‌ی مناسب خودم رو پیدا کنم؟</span></label>
@@ -343,7 +347,7 @@
 <input class="text-input other" name="q17_other" maxlength="180" dir="auto" placeholder="توضیح گزینه‌ی سایر (اختیاری)" aria-label="توضیح گزینه‌ی سایر برای سؤال ۱۷" disabled hidden>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q18" data-podcast>
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۸</bdi><span class="question-dot">.</span></span><span class="question-text">برای یک قسمت معمولی پادکست، چه مدتی رو ترجیح می‌دی؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۸</bdi><span class="question-dot">.</span></span><span class="question-text">هر قسمت پادکست چند دقیقه باشد؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q18" value="0" required><span>زیر ۵ دقیقه</span></label>
@@ -355,7 +359,7 @@
 </div>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q19" data-podcast>
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۹</bdi><span class="question-dot">.</span></span><span class="question-text">پادکست با چه قالبی برات جذاب‌تره؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۱۹</bdi><span class="question-dot">.</span></span><span class="question-text">چه قالبی برای پادکست ترجیح می‌دهید؟</span></span></legend>
 <p class="hint">یک گزینه انتخاب کنید.</p>
 <div class="options" data-max="1">
 <label class="option"><input type="radio" name="q19" value="0" required><span>توضیح کوتاه توسط یک نفر</span></label>
@@ -370,12 +374,12 @@
 <section class="survey-section" id="section-4" aria-labelledby="heading-4">
 <h2 id="heading-4">پیشنهاد، همکاری و راه ارتباطی</h2>
 <fieldset id="q20">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۲۰</bdi><span class="question-dot">.</span></span><span class="question-text">اگر پیشنهادی برای برنامه‌های انجمن دارید، بنویسید.</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۲۰</bdi><span class="question-dot">.</span></span><span class="question-text">چه پیشنهادی برای انجمن دارید؟</span></span></legend>
 <p class="hint" id="q20-hint">اختیاری</p>
 <textarea class="text-input" name="q20" maxlength="1000" dir="auto" aria-label="اگر پیشنهادی برای برنامه‌های انجمن دارید، بنویسید." aria-describedby="q20-hint"></textarea>
 <p class="error" aria-live="polite" hidden></p></fieldset>
 <fieldset id="q21">
-<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۲۱</bdi><span class="question-dot">.</span></span><span class="question-text">اگه دوست داری با انجمن همکاری کنی، به کدوم کارها علاقه داری؟</span></span></legend>
+<legend><span class="question-label"><span class="question-number"><bdi class="num" dir="ltr">۲۱</bdi><span class="question-dot">.</span></span><span class="question-text">دوست دارید در چه کاری با انجمن همکاری کنید؟</span></span></legend>
 <p class="hint">حداکثر ۲ گزینه انتخاب کنید.</p>
 <div class="options" data-max="2">
 <label class="option"><input type="checkbox" name="q21" value="0"><span>تولید محتوا یا پادکست</span></label>
