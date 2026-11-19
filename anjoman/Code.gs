@@ -411,8 +411,7 @@ function readAnswers_(params) {
       throw new Error("Invalid selection in " + name);
     }
     const labels = selected.map(value => question.options[value]);
-    fields.push(labels.join("
-"));
+    fields.push(labels.join("\n"));
     if (hasOther) {
       fields.push(labels.includes("سایر") ? textAnswer_(params[name + "_other"] || [], 180) : "");
     }
