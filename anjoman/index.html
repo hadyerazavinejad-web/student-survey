@@ -46,7 +46,7 @@
     .options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
     .option{display:flex;min-width:0;align-items:center;gap:9px;padding:8px 10px;line-height:1.65;border:1px solid var(--line);border-radius:9px;cursor:pointer;font-size:.87rem;min-height:45px}
     .option span{min-width:0}
-    .option:has(:checked){background:var(--selection);border-color:var(--selection-line);color:var(--selection-ink)}
+    .option.is-selected{background:var(--selection);border-color:var(--selection-line);color:var(--selection-ink)}
     .option input{accent-color:var(--blue);width:17px;height:17px;flex:none;margin:0}
     .text-input{display:block;width:100%;max-width:100%;min-width:0;font-size:16px;font-size:max(16px,1rem);border:1px solid var(--line);background:var(--field);color:var(--ink);border-radius:10px;padding:9px 12px;min-height:48px}
     .text-input::placeholder{color:var(--placeholder);opacity:1}
@@ -63,7 +63,7 @@
       legend{color:var(--number)}
       .option{color:#fff}
       .option input{accent-color:#fff}
-      .option:has(:checked){background:transparent;border-color:var(--selection-line);color:#fff;box-shadow:0 0 0 1px var(--selection-line)}
+      .option.is-selected{background:transparent;border-color:var(--selection-line);color:#fff;box-shadow:0 0 0 1px var(--selection-line)}
       button.primary{border-color:var(--line)}
       button.primary:active,.section-nav a:active{border-color:var(--selection-line);box-shadow:0 0 0 1px var(--selection-line)}
     }
@@ -399,6 +399,9 @@
     }
 
     function syncQuestion(field) {
+      for (const label of field.querySelectorAll('.option')) {
+        label.classList.toggle('is-selected', Boolean(label.querySelector('input:checked')));
+      }
       const other = field.querySelector(".other");
       if (other) {
         const selected = Boolean(field.querySelector("input[data-other]:checked"));
@@ -410,7 +413,7 @@
     function syncPodcast() {
       const interest = form.querySelector('[name="q16"]:checked');
       for (const field of form.querySelectorAll("[data-podcast]")) {
-        field.hidden = interest?.value === "2";
+        field.hidden = Boolean(interest && interest.value === "2");
         field.disabled = field.hidden;
       }
     }
