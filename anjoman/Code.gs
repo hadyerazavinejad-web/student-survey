@@ -429,14 +429,20 @@ function textAnswer_(values, limit, required) {
 function receipt_(title, message, saved) {
   const follow = saved
     ? '<p class="follow">اگر دوست داری خبر برنامه‌های بعدی رو بگیری، خوشحال می‌شیم در کانال تلگرام انجمن همراه‌مون باشی.</p>' +
-      '<a href="https://t.me/ceiau" target="_blank" rel="noopener noreferrer">رفتن به کانال انجمن علمی</a>'
+      '<a class="channel" href="https://t.me/ceiau" target="_blank" rel="noopener noreferrer">رفتن به کانال انجمن علمی</a>' +
+      '<p class="share">با فرستادن این پرسشنامه برای دوستان، هم‌کلاسی‌ها یا دانشجوهایی که می‌شناسی، کمک می‌کنی نظرهای بیشتری بشنویم و برنامه‌های انجمن رو بهتر کنیم. <a href="https://hadyerazavinejad-web.github.io/student-survey/anjoman/" target="_blank" rel="noopener noreferrer">لینک پرسشنامه</a></p>'
     : '';
 
   return HtmlService.createHtmlOutput(
     '<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">' +
-    '<style>body{margin:0;background:#eef3fa;color:#17253c;font:16px/1.9 Tahoma,Arial,sans-serif}' +
-    'main{max-width:560px;margin:12vh auto 0;padding:28px;background:#fff;border:1px solid #d7e0ee;border-radius:18px}' +
-    'h1{font-size:1.55rem;margin:0 0 6px;color:#142850}p{margin:0}.follow{margin-top:16px}a{display:inline-block;margin-top:12px;padding:8px 16px;background:#142850;color:#fff;border-radius:10px;text-decoration:none}a:focus-visible{outline:3px solid #3672ec;outline-offset:3px}@media(max-width:620px){main{margin:8vh 14px 0}}</style>' +
+    `<meta name="color-scheme" content="light dark"><style>:root{color-scheme:light dark;--bg:#eef3fa;--surface:#fff;--ink:#17253c;--heading:#142850;--line:#d7e0ee;--link:#244fbe;--button:#142850;--focus:#3672ec}
+@media(prefers-color-scheme:dark){:root{--bg:#0e182a;--surface:#172438;--ink:#e9effc;--heading:#f0f5ff;--line:#354766;--link:#adc7ff;--button:#315ccd;--focus:#a2c4ff}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.9 Tahoma,Arial,sans-serif}
+main{max-width:560px;margin:12vh auto 0;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:20px}
+h1{font-size:clamp(1.3rem,5vw,1.65rem);margin:0 0 8px;color:var(--heading)}p{margin:0}.follow{margin-top:16px}
+a{color:var(--link)}.channel{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;padding:8px 16px;background:var(--button);color:#fff;border-radius:10px;text-decoration:none}
+.share{margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media(max-width:620px){main{margin:8vh 14px 20px;padding:22px}}</style>` +
     '</head><body><main><h1>' + title + '</h1><p>' + message + '</p>' + follow + '</main></body></html>'
   ).setTitle(title).addMetaTag("viewport", "width=device-width, initial-scale=1");
 }
