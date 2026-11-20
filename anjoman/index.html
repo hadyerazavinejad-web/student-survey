@@ -16,6 +16,7 @@
     }());
   </script>
   <title>نیازسنجی دانشجویی | انجمن علمی مهندسی کامپیوتر</title>
+  <link rel="stylesheet" media="(min-width: 761px)" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&amp;display=swap">
   <style>
     :root{color-scheme:light;--navy:#142850;--ink:#17253c;--blue:#244fbe;--mute:#52617a;--line:#d7e0ee;--bg:#eef3fa;--accent:#bfedef;--surface:#fff;--field:#f9fbff;--link:#1a439f;--selection:#edf3ff;--selection-line:#7295ec;--selection-ink:#173d91;--focus:#3672ec;--error:#9d2424;--notice-bg:#edf3ff;--notice-ink:#273f64;--notice-line:#b5cbe8;--placeholder:#606f86;--number:#244fbe;--active-line:#315ab0;--control-accent:#244fbe;--nav-line:#b5cbe8;--category-border:#273f64;--question-border:#b5cbe8;}
     @media(prefers-color-scheme:dark){:root:not([data-theme]){color-scheme:dark;--navy:#091429;--ink:#f4f7ff;--blue:#243551;--mute:#b9c8de;--line:#2c3b51;--bg:#080f20;--accent:#d5e1f4;--surface:#101b30;--field:#0d172a;--link:#f4f7ff;--selection:#322922;--selection-line:#b98b70;--selection-ink:#fff;--focus:#a9bdd8;--error:#f1a6a6;--notice-bg:#18253c;--notice-ink:#e9effa;--notice-line:#43526b;--placeholder:#a9b9d2;--number:#d9ad91;--active-line:#b98b70;--control-accent:#dcaa89;--nav-line:#98735f;--category-border:#98735f;--question-border:#654f45;--hero-end:#182a4b;}}
@@ -32,14 +33,11 @@
       padding-bottom:max(48px,env(safe-area-inset-bottom));
       padding-left:max(26px,env(safe-area-inset-left));
     }
-    .hero{background:linear-gradient(125deg,var(--navy),var(--hero-end,#23446e));color:white;padding:clamp(24px,5vw,56px);border-radius:24px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .hero{background:linear-gradient(125deg,var(--navy),var(--hero-end,#23446e));color:white;padding:clamp(24px,5vw,56px);border-radius:24px;display:block}
     .hero>div:first-child{min-width:0}
     .brand{font-size:.87rem;color:var(--accent);margin:0 0 8px}
     h1{font-size:clamp(1.6rem,4vw,2.85rem);line-height:1.45;margin:0 0 10px}
     .hero p:last-child{max-width:61ch;margin:0;color:#e0e9ff}
-    .orbit{width:124px;flex:0 0 124px;aspect-ratio:1;border:1px solid #7892d0;border-radius:50%;display:grid;place-items:center}
-    .orbit::before{content:"";width:67%;aspect-ratio:1;border:1px solid #89cbd7;border-radius:50%;grid-area:1/1}
-    .orbit::after{content:"";width:33%;aspect-ratio:1;background:var(--accent);border-radius:50%;grid-area:1/1}
     .notice{padding:10px 15px;border:1px solid var(--notice-line);background:var(--notice-bg);color:var(--notice-ink);border-radius:12px;margin:16px 0 0;font-size:.88rem}
     main{width:100%;min-width:0;max-width:980px;margin:18px auto 0}
     .theme-tools{display:flex;justify-content:flex-start;margin:0 0 12px}
@@ -87,6 +85,17 @@
       :root[data-theme="dark"] legend{color:var(--number)}
       :root[data-theme="dark"] .option{color:#fff}
       :root[data-theme="dark"] button.primary:active,:root[data-theme="dark"] .section-nav a:active{border-color:var(--active-line)}
+    @media(min-width:761px){
+      body{font-family:Vazirmatn,Tahoma,Arial,sans-serif}
+      .hero{text-align:center;padding-block:clamp(28px,4vw,48px)}
+      .hero p:last-child{margin-inline:auto}
+      .survey-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:17px 0 14px}
+      .survey-toolbar .section-nav,.survey-toolbar .theme-tools{margin:0}
+      .survey-toolbar .theme-tools{flex:none}
+      .actions{justify-content:center;background:transparent;border:0;padding:12px 0 20px}
+      .actions .primary{min-width:165px}
+      .actions [role="status"]{text-align:center}
+    }
     @media(max-width:760px){
       .wrap{padding:15px 12px 22px;
         padding-top:max(15px,env(safe-area-inset-top));
@@ -94,7 +103,6 @@
         padding-bottom:calc(22px + env(safe-area-inset-bottom));
         padding-left:max(12px,env(safe-area-inset-left))}
       .hero,.survey-section,.actions{border-radius:16px}
-      .orbit{display:none}
     }
     @media(max-width:540px){
       .options{grid-template-columns:minmax(0,1fr)}
@@ -116,12 +124,13 @@
         <h1>نیازسنجی دانشجویی</h1>
         <p>دانشجویان همه‌ی رشته‌ها می‌توانند در این پرسشنامه شرکت کنند. با پاسخ‌هاتون به انجمن کمک کنید موضوع کارگاه‌ها، پادکست و برنامه‌های مشترک رو انتخاب کنه.</p>
       </div>
-      <div class="orbit" aria-hidden="true"></div>
     </header>
     <main>
       <p id="preview-note" class="notice">پیش‌نمایش پرسشنامه · ثبت پاسخ هنوز فعال نیست.</p>
-      <nav class="section-nav" aria-label="بخش‌های پرسشنامه"><a href="#section-1">نیازهای دانشجویی</a> <a href="#section-2">کارگاه‌ها و رویدادها</a> <a href="#section-3">رسانه و پادکست</a> <a href="#section-4">پیشنهاد، همکاری و راه ارتباطی</a></nav>
-      <div class="theme-tools"><button type="button" id="theme-toggle" aria-label="تغییر تم نمایش" hidden></button></div>
+      <div class="survey-toolbar">
+        <nav class="section-nav" aria-label="بخش‌های پرسشنامه"><a href="#section-1">نیازهای دانشجویی</a> <a href="#section-2">کارگاه‌ها و رویدادها</a> <a href="#section-3">رسانه و پادکست</a> <a href="#section-4">پیشنهاد، همکاری و راه ارتباطی</a></nav>
+        <div class="theme-tools"><button type="button" id="theme-toggle" aria-label="تغییر تم نمایش" hidden></button></div>
+      </div>
       <form id="survey" method="post" accept-charset="UTF-8">
         <input type="hidden" name="response_id">
         <input type="hidden" name="ui_theme">
