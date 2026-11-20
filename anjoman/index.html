@@ -42,10 +42,8 @@
     main{width:100%;min-width:0;max-width:980px;margin:18px auto 0}
     .theme-tools{display:flex;justify-content:flex-start;margin:0 0 12px}
     #theme-toggle{display:inline-flex;align-items:center;color:var(--link);padding-inline:12px}
-    #theme-toggle:hover{background:var(--field)}
     .section-nav{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 10px}
     .section-nav a{color:var(--link);text-decoration:none;background:var(--surface);border:1px solid var(--nav-line);border-radius:9px;padding:7px 11px;font-size:.84rem;min-width:0;max-width:100%;min-height:44px;display:flex;align-items:center}
-    .section-nav a:hover{text-decoration:underline}
     .section-nav a[aria-current]{background:var(--selection);border-color:var(--active-line)}
     .survey-section,.actions{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(17px,4vw,32px);margin-bottom:14px;scroll-margin-top:14px}
     .survey-section{border-color:var(--category-border);padding-inline:clamp(12px,3vw,29px)}
@@ -85,6 +83,22 @@
       :root[data-theme="dark"] legend{color:var(--number)}
       :root[data-theme="dark"] .option{color:#fff}
       :root[data-theme="dark"] button.primary:active,:root[data-theme="dark"] .section-nav a:active{border-color:var(--active-line)}
+    @media(min-width:761px) and (hover:hover) and (pointer:fine){
+      .survey-toolbar{--toolbar-hover-bg:#e5edf9;--hover-border:#b98b70}
+      @media(prefers-color-scheme:dark){
+        :root:not([data-theme]) .survey-toolbar{--toolbar-hover-bg:#0a1324}
+      }
+      :root[data-theme="dark"] .survey-toolbar{--toolbar-hover-bg:#0a1324}
+      #theme-toggle:hover,.section-nav a:hover{
+        background:var(--toolbar-hover-bg);
+        border-color:var(--hover-border);
+      }
+      .actions button.primary:not(:disabled):hover{
+        background:#c79a80;
+        border-color:#b98b70;
+        color:#241b16;
+      }
+    }
     @media(min-width:761px){
       body{font-family:Vazirmatn,Tahoma,Arial,sans-serif}
       .hero{text-align:center;padding-block:clamp(28px,4vw,48px)}
